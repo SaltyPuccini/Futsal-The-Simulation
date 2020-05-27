@@ -7,24 +7,15 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 
-public class Sectors {
+public class Test {
 
-    int index;
-    ArrayList<Integer> arrayOfSectorsID = new ArrayList();
-    void loadSectors() throws IOException, JSONException {
+    public static void main(String[] args) throws JSONException, IOException {
 
         String content = new String(Files.readAllBytes(Paths.get("src/main/resources/sektory.json")));
         JSONArray arr = new JSONArray(content);
         JSONObject obj = arr.getJSONObject(0);
         int id = obj.getInt("id");
         System.out.println(id);
-
-        for(int i=0; i<arr.length(); i++)
-        {
-            this.arrayOfSectorsID.add(id);
-        }
-
     }
 }
