@@ -1,0 +1,151 @@
+[{
+  "id": 1,
+  "sasiadnie_pola": [2,6],
+  "pojemnosc": 3
+  },
+  {
+    "id": 2,
+    "sasiadnie_pola": [1,3,7],
+    "pojemnosc": 3
+  },
+  {
+    "id": 3,
+    "sasiadnie_pola": [2,4,8],
+    "pojemnosc": 3
+  },
+  {
+    "id": 4,
+    "sasiadnie_pola": [3,5,9],
+    "pojemnosc": 3
+  },
+  {
+    "id": 5,
+    "sasiadnie_pola": [4,10],
+    "pojemnosc": 3
+  },
+  {
+    "id": 6,
+    "sasiadnie_pola": [1,7,11],
+    "pojemnosc": 3
+  },
+  {
+    "id": 7,
+    "sasiadnie_pola": [2,6,8,12],
+    "pojemnosc": 3
+  },
+  {
+    "id": 8,
+    "sasiadnie_pola": [3,7,9,13],
+    "pojemnosc": 3
+  },
+  {
+    "id": 9,
+    "sasiadnie_pola": [4,8,10,14],
+    "pojemnosc": 3
+  },
+  {
+    "id": 10,
+    "sasiadnie_pola": [5,9,15],
+    "pojemnosc": 3
+  },
+  {
+    "id": 11,
+    "sasiadnie_pola": [6,12,16],
+    "pojemnosc": 3
+  },
+  {
+    "id": 12,
+    "sasiadnie_pola": [7,11,13,17],
+    "pojemnosc": 3
+  },
+  {
+    "id": 13,
+    "sasiadnie_pola": [8,12,14,18],
+    "pojemnosc": 3
+  },
+  {
+    "id": 14,
+    "sasiadnie_pola": [9,13,15,19],
+    "pojemnosc": 3
+  },
+  {
+    "id": 15,
+    "sasiadnie_pola": [10,14,20],
+    "pojemnosc": 3
+  },
+  {
+    "id": 16,
+    "sasiadnie_pola": [11,17,21],
+    "pojemnosc": 3
+  },
+  {
+    "id": 17,
+    "sasiadnie_pola": [12,16,18,22],
+    "pojemnosc": 3
+  },
+  {
+    "id": 18,
+    "sasiadnie_pola": [13,17,19,23],
+    "pojemnosc": 3
+  },
+  {
+    "id": 19,
+    "sasiadnie_pola": [14,18,20,24],
+    "pojemnosc": 3
+  },
+  {
+    "id": 20,
+    "sasiadnie_pola": [15,19,25],
+    "pojemnosc": 3
+  },
+  {
+    "id": 21,
+    "sasiadnie_pola": [16,22,26],
+    "pojemnosc": 3
+  },
+  {
+    "id": 22,
+    "sasiadnie_pola": [17,21,23,27],
+    "pojemnosc": 3
+  },
+  {
+    "id": 23,
+    "sasiadnie_pola": [18,22,24,28],
+    "pojemnosc": 3
+  },
+  {
+    "id": 24,
+    "sasiadnie_pola": [19,23,25,29],
+    "pojemnosc": 3
+  },
+  {
+    "id": 25,
+    "sasiadnie_pola": [20,24,30],
+    "pojemnosc": 3
+  },
+  {
+    "id": 26,
+    "sasiadnie_pola": [21,27],
+    "pojemnosc": 3
+  },
+  {
+    "id": 27,
+    "sasiadnie_pola": [22,26,28],
+    "pojemnosc": 3
+  },
+  {
+    "id": 28,
+    "sasiadnie_pola": [23,27,29],
+    "pojemnosc": 3
+  },
+  {
+    "id": 29,
+    "sasiadnie_pola": [24,28,30],
+    "pojemnosc": 3
+  },
+  {
+    "id": 30,
+    "sasiadnie_pola": [25,29],
+    "pojemnosc": 3
+  }
+]

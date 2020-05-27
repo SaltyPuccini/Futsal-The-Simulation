@@ -252,7 +252,7 @@ public class Zawodnik extends Podanie {
 		int szansa = 0;
 		if (getDruzyna()) {
 			if (strefa <= 10)
-				szansa = (strzal) * (1);
+				szansa = (strzal);
 			if (strefa > 10 && strefa <= 20)
 				szansa = (strzal) * (15);
 			if ((strefa > 20 && strefa <= 26) || strefa == 30)
@@ -261,7 +261,7 @@ public class Zawodnik extends Podanie {
 				szansa = (strzal) * (90);
 		} else {
 			if (strefa >= 25)
-				szansa = (strzal) * (1);
+				szansa = (strzal);
 			if (strefa < 25 && szansa >= 11)
 				szansa = (strzal) * (15);
 			if ((strefa < 11 && strefa >= 5) || strefa == 1)
