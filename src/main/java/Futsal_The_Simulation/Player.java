@@ -4,6 +4,8 @@ import java.util.Random;
 
 public class Player {
 
+    System.out.println("xD");
+
     boolean strzelaj(Random r) {
         int szansa = 0;
         if (getDruzyna()) {
