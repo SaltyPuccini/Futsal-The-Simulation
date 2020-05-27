@@ -8,7 +8,6 @@ public abstract class Player {
         /* make a move */
         return moveDirection;
     }
-}
 
     public boolean pass(){
         return true;
