@@ -5,12 +5,14 @@ public class PlayerSpecs {
     int passingStats;
     int defendingStats;
     Teams myTeam;
+    int whichSectorAmIIn;
 
-    PlayerSpecs(int shootingStats, int passingStats, int defendingStats) {
+    PlayerSpecs(int shootingStats, int passingStats, int defendingStats, Teams myTeam, int whichSectorAmIIn) {
         this.defendingStats = defendingStats;
         this.passingStats = passingStats;
         this.shootingStats = shootingStats;
         this.myTeam = myTeam;
+        this.whichSectorAmIIn=whichSectorAmIIn;
     }
 
     public int getDefendingStats() {
