@@ -1,4 +1,6 @@
 package Futsal_The_Simulation;
 
-public class Defender {
+import Projekt_PO_Futsal.Zawodnik;
+
+public class Defender extends Player {
 }

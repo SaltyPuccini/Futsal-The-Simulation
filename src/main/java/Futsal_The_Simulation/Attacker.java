@@ -1,4 +1,6 @@
 package Futsal_The_Simulation;
 
-public class Attacker {
+import Projekt_PO_Futsal.Zawodnik;
+
+public class Attacker extends Player {
 }
