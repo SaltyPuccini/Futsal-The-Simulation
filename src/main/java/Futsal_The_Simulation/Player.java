@@ -2,7 +2,7 @@ package Futsal_The_Simulation;
 
 import java.util.Random;
 
-public class Zawodnik {
+public class Player {
 
     boolean strzelaj(Random r) {
         int szansa = 0;
