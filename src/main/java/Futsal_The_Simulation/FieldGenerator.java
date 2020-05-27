@@ -13,19 +13,23 @@ public class FieldGenerator {
 
     ArrayList <Sectors> allSectors = new ArrayList<>();
 
-    void loadSectors() throws IOException, JSONException {
-        String path = new String(Files.readAllBytes(Paths.get("src/main/resources/sektory.json")));
-        JSONArray arr = new JSONArray(path);
-
-        for(int i=0; i<arr.length(); i++)
-        {
-            JSONObject obj = arr.getJSONObject(i);
-            int id = obj.getInt("id");
-            int capacity=obj.getInt("capacity");
-            JSONArray connectedSectors=obj.getJSONArray("connectedSectors");
-            Sectors sector = new Sectors(id, capacity, connectedSectors);
-            allSectors.add(sector);
-        }
+    void addLocalVariablesToGlobalField(int id, int capacity, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere){
+        Sectors sector = new Sectors(id, capacity, connectedSectors, isPlayerRightHere, isPlayerLeftHere);
+        allSectors.add(sector);
     }
 
+    void loadSectors() throws IOException, JSONException {
+        String path = new String(Files.readAllBytes(Paths.get("src/main/resources/sektory.json")));
+        JSONArray jsonArray = new JSONArray(path);
+        for(int i=0; i<jsonArray.length(); i++)
+        {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            int id = jsonObject.getInt("id");
+            int capacity=jsonObject.getInt("capacity");
+            boolean isPlayerRightHere=jsonObject.getBoolean("isPlayerRightHere");
+            boolean isPlayerLeftHere=jsonObject.getBoolean("isPlayerLeftHere");
+            JSONArray connectedSectors=jsonObject.getJSONArray("connectedSectors");
+            addLocalVariablesToGlobalField(id, capacity, connectedSectors, isPlayerRightHere, isPlayerLeftHere);
+        }
+    }
 }

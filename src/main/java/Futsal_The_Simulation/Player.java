@@ -1,10 +1,8 @@
 package Futsal_The_Simulation;
 
-import java.util.Random;
-
 public abstract class Player {
-    public char move(char moveDirection){
-        Player player = null;
+    public char move(PlayerSpecifications statistics, FieldGenerator){
+        statistics.getWhichSectorAmIIn();
         /* make a move */
         return moveDirection;
     }
@@ -16,4 +14,7 @@ public abstract class Player {
     public boolean reception(){
         return true;
     }
+
+
+
 }
