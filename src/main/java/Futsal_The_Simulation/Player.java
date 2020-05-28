@@ -1,6 +1,6 @@
 package Futsal_The_Simulation;
 
-public class Player {
+public abstract class Player {
 
     Teams myTeam;
     int mySector;
@@ -11,6 +11,7 @@ public class Player {
     }
 
     public char move() {
+
         return '0';
     }
 
