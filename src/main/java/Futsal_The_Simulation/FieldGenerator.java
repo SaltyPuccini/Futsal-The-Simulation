@@ -31,6 +31,7 @@ public class FieldGenerator {
             JSONArray connectedSectors=jsonObject.getJSONArray("connectedSectors");
             String isWallNextToMe=jsonObject.getString("isWallNextToMe");
             addLocalVariablesToGlobalField(id, capacity, connectedSectors, isPlayerRightHere, isPlayerLeftHere, isWallNextToMe);
+            System.out.println(isWallNextToMe);
         }
     }
 
