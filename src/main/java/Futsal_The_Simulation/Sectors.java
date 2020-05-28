@@ -19,5 +19,4 @@ public class Sectors {
         this.connectedSectors = connectedSectors;
     }
 
-
 }
