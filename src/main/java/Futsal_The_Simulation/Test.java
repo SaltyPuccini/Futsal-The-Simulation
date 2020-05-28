@@ -10,5 +10,12 @@ public class Test {
 
         FieldGenerator field = new FieldGenerator();
         field.loadSectors();
+
+        Attacker attacker = new Attacker(Teams.AS_RIGHT, 29);
+
+        OtherPlayersAround search = new OtherPlayersAround();
+        search.checkingForTeammates(field, attacker);
+
+
     }
 }

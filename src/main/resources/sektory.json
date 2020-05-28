@@ -86,7 +86,7 @@
     "id": 13,
     "connectedSectors": [8,12,14,18],
     "capacity": 3,
-    "isPlayerRightHere": false,
+    "isPlayerRightHere": true,
     "isPlayerLeftHere": false
   },
   {
@@ -94,7 +94,7 @@
     "connectedSectors": [9,13,15,19],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": true
   },
   {
     "id": 15,

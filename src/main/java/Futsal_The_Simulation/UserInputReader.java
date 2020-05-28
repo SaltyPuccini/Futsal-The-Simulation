@@ -1,7 +1,4 @@
 package Futsal_The_Simulation;
-
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,7 +15,7 @@ public class UserInputReader {
         return simulationProperties;
     }
 
-    public ArrayList<Integer> askQuestionsAboutSimulationPropertiesThenOperateOnArrayList(@NotNull Scanner scanFromUser) {
+    public ArrayList<Integer> askQuestionsAboutSimulationPropertiesThenOperateOnArrayList(Scanner scanFromUser) {
         System.out.println("Ile minut ma trwaæ mecz?");
         timeEstimated = scanFromUser.nextInt();
         System.out.println("Ilu pi³karzy (nie licz¹c bramkarza) powinna liczyæ dru¿yna?");

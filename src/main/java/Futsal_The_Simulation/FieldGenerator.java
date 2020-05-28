@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class FieldGenerator {
 
-    ArrayList <Sectors> allSectors = new ArrayList<>();
+    private ArrayList <Sectors> allSectors = new ArrayList<>();
 
     void addLocalVariablesToGlobalField(int id, int capacity, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere){
         Sectors sector = new Sectors(id, capacity, connectedSectors, isPlayerRightHere, isPlayerLeftHere);
@@ -31,5 +31,9 @@ public class FieldGenerator {
             JSONArray connectedSectors=jsonObject.getJSONArray("connectedSectors");
             addLocalVariablesToGlobalField(id, capacity, connectedSectors, isPlayerRightHere, isPlayerLeftHere);
         }
+    }
+
+    public ArrayList<Sectors> getAllSectors() {
+        return allSectors;
     }
 }
