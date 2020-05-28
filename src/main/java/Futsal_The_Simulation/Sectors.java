@@ -4,12 +4,12 @@ import org.json.JSONArray;
 
 public class Sectors {
 
-    private int id;
-    private int capacity;
-    private JSONArray connectedSectors;
-    private boolean isPlayerRightHere;
-    private boolean isPlayerLeftHere;
-    private String isWallNextToMe;
+    private final int id;
+    private final int capacity;
+    private final JSONArray connectedSectors;
+    private final boolean isPlayerRightHere;
+    private final boolean isPlayerLeftHere;
+    private final String isWallNextToMe;
 
 
     Sectors(int id, int capacity, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere, String isWallNextToMe) {

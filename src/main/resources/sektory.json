@@ -4,7 +4,7 @@
   "capacity": 3,
   "isPlayerRightHere": false,
   "isPlayerLeftHere": false,
-  "isWallNextToMe": "right_up_corner"
+  "isWallNextToMe": "left_up_corner"
 
   },
   {
@@ -99,7 +99,7 @@
     "id": 13,
     "connectedSectors": [8,12,14,18],
     "capacity": 3,
-    "isPlayerRightHere": true,
+    "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
     "isWallNextToMe": "none"
   },
@@ -108,7 +108,7 @@
     "connectedSectors": [9,13,15,19],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": true,
+    "isPlayerLeftHere": false,
     "isWallNextToMe": "none"
   },
   {

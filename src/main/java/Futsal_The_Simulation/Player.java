@@ -29,4 +29,8 @@ public abstract class Player {
     public int getMySector(){
         return mySector;
     }
+
+    public void setMySector(int mySector) {
+        this.mySector = mySector;
+    }
 }
