@@ -9,14 +9,16 @@ public class Sectors {
     private JSONArray connectedSectors;
     private boolean isPlayerRightHere;
     private boolean isPlayerLeftHere;
+    private String isWallNextToMe;
 
 
-    Sectors(int id, int capacity, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere) {
+    Sectors(int id, int capacity, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere, String isWallNextToMe) {
         this.isPlayerRightHere = isPlayerRightHere;
         this.isPlayerLeftHere = isPlayerLeftHere;
         this.id = id;
         this.capacity = capacity;
         this.connectedSectors = connectedSectors;
+        this.isWallNextToMe =isWallNextToMe;
     }
 
     public JSONArray getConnectedSectors() {
@@ -29,5 +31,9 @@ public class Sectors {
 
     public boolean getIsPlayerRightHere() {
         return isPlayerRightHere;
+    }
+
+    public String getIsWallNextToMe() {
+        return isWallNextToMe;
     }
 }

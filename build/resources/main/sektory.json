@@ -3,209 +3,240 @@
   "connectedSectors": [2,6],
   "capacity": 3,
   "isPlayerRightHere": false,
-  "isPlayerLeftHere": false
+  "isPlayerLeftHere": false,
+  "isAWallAroundMe": "right_up_corner"
+
   },
   {
     "id": 2,
     "connectedSectors": [1,3,7],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "left"
   },
   {
     "id": 3,
     "connectedSectors": [2,4,8],
     "capacity": 2,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "left"
   },
   {
     "id": 4,
     "connectedSectors": [3,5,9],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "left"
   },
   {
     "id": 5,
     "connectedSectors": [4,10],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "left_down_corner"
   },
   {
     "id": 6,
     "connectedSectors": [1,7,11],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "up"
   },
   {
     "id": 7,
     "connectedSectors": [2,6,8,12],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "none"
   },
   {
     "id": 8,
     "connectedSectors": [3,7,9,13],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "none"
   },
   {
     "id": 9,
     "connectedSectors": [4,8,10,14],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "none"
   },
   {
     "id": 10,
     "connectedSectors": [5,9,15],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "down"
   },
   {
     "id": 11,
     "connectedSectors": [6,12,16],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "up"
   },
   {
     "id": 12,
     "connectedSectors": [7,11,13,17],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "none"
   },
   {
     "id": 13,
     "connectedSectors": [8,12,14,18],
     "capacity": 3,
     "isPlayerRightHere": true,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "none"
   },
   {
     "id": 14,
     "connectedSectors": [9,13,15,19],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": true
+    "isPlayerLeftHere": true,
+    "isAWallAroundMe": "none"
   },
   {
     "id": 15,
     "connectedSectors": [10,14,20],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "down"
   },
   {
     "id": 16,
     "connectedSectors": [11,17,21],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "up"
   },
   {
     "id": 17,
     "connectedSectors": [12,16,18,22],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "none"
   },
   {
     "id": 18,
     "connectedSectors": [13,17,19,23],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "none"
   },
   {
     "id": 19,
     "connectedSectors": [14,18,20,24],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "none"
   },
   {
     "id": 20,
     "connectedSectors": [15,19,25],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "down"
   },
   {
     "id": 21,
     "connectedSectors": [16,22,26],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "up"
   },
   {
     "id": 22,
     "connectedSectors": [17,21,23,27],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "none"
   },
   {
     "id": 23,
     "connectedSectors": [18,22,24,28],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "none"
   },
   {
     "id": 24,
     "connectedSectors": [19,23,25,29],
     "capacity": 3,
-    "isPlayerRightHere": true,
-    "isPlayerLeftHere": false
+    "isPlayerRightHere": false,
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "none"
   },
   {
     "id": 25,
     "connectedSectors": [20,24,30],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "down"
   },
   {
     "id": 26,
     "connectedSectors": [21,27],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "right_up_corner"
   },
   {
     "id": 27,
     "connectedSectors": [22,26,28],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "right"
   },
   {
     "id": 28,
     "connectedSectors": [23,27,29],
     "capacity": 2,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "right"
   },
   {
     "id": 29,
     "connectedSectors": [24,28,30],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "right"
   },
   {
     "id": 30,
     "connectedSectors": [25,29],
     "capacity": 3,
-    "isPlayerRightHere": true,
-    "isPlayerLeftHere": false
+    "isPlayerRightHere": false,
+    "isPlayerLeftHere": false,
+    "isAWallAroundMe": "right_down_corner"
   }
 ]
