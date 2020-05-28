@@ -51,7 +51,7 @@
     "id": 7,
     "connectedSectors": [2,6,8,12],
     "capacity": 3,
-    "isPlayerRightHere": false,
+    "isPlayerRightHere": true,
     "isPlayerLeftHere": false,
     "isAWallAroundMe": "none"
   },

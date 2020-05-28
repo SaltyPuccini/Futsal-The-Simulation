@@ -44,7 +44,7 @@
     "id": 7,
     "connectedSectors": [2,6,8,12],
     "capacity": 3,
-    "isPlayerRightHere": false,
+    "isPlayerRightHere": true,
     "isPlayerLeftHere": false
   },
   {
@@ -163,7 +163,7 @@
     "id": 24,
     "connectedSectors": [19,23,25,29],
     "capacity": 3,
-    "isPlayerRightHere": true,
+    "isPlayerRightHere": false,
     "isPlayerLeftHere": false
   },
   {
@@ -205,7 +205,7 @@
     "id": 30,
     "connectedSectors": [25,29],
     "capacity": 3,
-    "isPlayerRightHere": true,
+    "isPlayerRightHere": false,
     "isPlayerLeftHere": false
   }
 ]
