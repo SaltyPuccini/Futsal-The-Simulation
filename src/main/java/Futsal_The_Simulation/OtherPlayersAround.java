@@ -1,6 +1,5 @@
 package Futsal_The_Simulation;
 
-import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -16,7 +15,7 @@ public class OtherPlayersAround {
 
     public void onWhomAmIOperating(Player player) {
         myTeam = player.getMyTeam();
-        mySector = player.getWhichSectorAmIIn();
+        mySector = player.getMySector();
     }
 
     public void gettingInformationAboutConnectedSectors(FieldGenerator generator, Player player) {
@@ -27,18 +26,18 @@ public class OtherPlayersAround {
 
     public void fillingArrayOfConnectedSectors(FieldGenerator generator, Player player) throws JSONException {
         gettingInformationAboutConnectedSectors(generator, player);
-        arrayOfConnectedSectors = new int[connectedSectors.length()]; //dru¿yna lewa sprawdza od indeksu 0, a prawa od najwuy¿szego
+        arrayOfConnectedSectors = new int[connectedSectors.length()]; //dru¿yna prawa sprawdza od indeksu 0, a lewa od najwuy¿szego
         for (int i = 0; i < connectedSectors.length(); i++)
             arrayOfConnectedSectors[i] = connectedSectors.getInt(i);
     }
 
     public void searchTeamLeft(FieldGenerator generator, int iterator) {
-        neighbourSectorToCheck = generator.getAllSectors().get(arrayOfConnectedSectors[iterator]);
+        neighbourSectorToCheck = generator.getAllSectors().get(arrayOfConnectedSectors[iterator] - 1);
         isPlayerLeftHere = neighbourSectorToCheck.getIsPlayerLeftHere();
     }
 
-    public void searchTeamRight(@NotNull FieldGenerator generator, int iterator) {
-        neighbourSectorToCheck = generator.getAllSectors().get(arrayOfConnectedSectors[iterator]);
+    public void searchTeamRight(FieldGenerator generator, int iterator) {
+        neighbourSectorToCheck = generator.getAllSectors().get(arrayOfConnectedSectors[iterator] - 1);
         isPlayerRightHere = neighbourSectorToCheck.getIsPlayerRightHere();
     }
 
@@ -46,20 +45,25 @@ public class OtherPlayersAround {
         fillingArrayOfConnectedSectors(generator, player);
         switch (myTeam) {
             case FC_LEFT:
-                for (int i = 0; i < connectedSectors.length(); i++) {
+                for (int i = connectedSectors.length() - 1; i >= 0; i--) {
                     searchTeamLeft(generator, i);
-                    if (isPlayerLeftHere)
+                    if (isPlayerLeftHere) {
+                        System.out.println("There's someone in sector " + arrayOfConnectedSectors[i]);
                         return arrayOfConnectedSectors[i];
+                    }
                 }
                 break;
             case AS_RIGHT:
-                for (int i = connectedSectors.length() - 1; i <= 0; i--) {
+                for (int i = 0; i < connectedSectors.length(); i++) {
                     searchTeamRight(generator, i);
-                    if (isPlayerRightHere)
+                    if (isPlayerRightHere) {
+                        System.out.println("There's someone in sector " + arrayOfConnectedSectors[i]);
                         return arrayOfConnectedSectors[i];
+                    }
                 }
                 break;
         }
+        System.out.println("There's noone nearby - I think i shall move...");
         return 0;
     }
 }

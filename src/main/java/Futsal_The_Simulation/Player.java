@@ -1,28 +1,32 @@
 package Futsal_The_Simulation;
 
-public abstract class Player {
+public class Player {
 
-    private int whichSectorAmIIn;
     Teams myTeam;
+    int mySector;
 
-    public char move(){
+    Player(Teams myTeam, int mySector) {
+        this.myTeam=myTeam;
+        this.mySector=mySector;
     }
 
-    public boolean pass(){
+    public char move() {
+        return '0';
+    }
+
+    public boolean pass() {
         return true;
     }
 
-    public boolean reception(){
+    public boolean reception() {
         return true;
-    }
-
-    public int getWhichSectorAmIIn() {
-        return whichSectorAmIIn;
     }
 
     public Teams getMyTeam() {
         return myTeam;
     }
 
-
+    public int getMySector(){
+        return mySector;
+    }
 }
