@@ -18,7 +18,7 @@ public class Sectors {
         this.id = id;
         this.capacity = capacity;
         this.connectedSectors = connectedSectors;
-        this.isWallNextToMe=isWallNextToMe;
+        this.isWallNextToMe =isWallNextToMe;
     }
 
     public JSONArray getConnectedSectors() {

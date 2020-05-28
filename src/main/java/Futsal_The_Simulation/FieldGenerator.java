@@ -13,8 +13,8 @@ public class FieldGenerator {
 
     private ArrayList <Sectors> allSectors = new ArrayList<>();
 
-    void addLocalVariablesToGlobalField(int id, int capacity, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere){
-        Sectors sector = new Sectors(id, capacity, connectedSectors, isPlayerRightHere, isPlayerLeftHere);
+    void addLocalVariablesToGlobalField(int id, int capacity, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere, String isWallNextToMe){
+        Sectors sector = new Sectors(id, capacity, connectedSectors, isPlayerRightHere, isPlayerLeftHere, isWallNextToMe);
         allSectors.add(sector);
     }
 
@@ -29,7 +29,8 @@ public class FieldGenerator {
             boolean isPlayerRightHere=jsonObject.getBoolean("isPlayerRightHere");
             boolean isPlayerLeftHere=jsonObject.getBoolean("isPlayerLeftHere");
             JSONArray connectedSectors=jsonObject.getJSONArray("connectedSectors");
-            addLocalVariablesToGlobalField(id, capacity, connectedSectors, isPlayerRightHere, isPlayerLeftHere);
+            String isWallNextToMe=jsonObject.getString("isWallNextToMe");
+            addLocalVariablesToGlobalField(id, capacity, connectedSectors, isPlayerRightHere, isPlayerLeftHere, isWallNextToMe);
         }
     }
 
