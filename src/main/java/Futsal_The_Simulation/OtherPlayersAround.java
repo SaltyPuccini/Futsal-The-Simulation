@@ -48,7 +48,7 @@ public class OtherPlayersAround {
                 for (int i = connectedSectors.length() - 1; i >= 0; i--) {
                     searchTeamLeft(generator, i);
                     if (isPlayerLeftHere) {
-                        System.out.println("There's someone in sector " + arrayOfConnectedSectors[i]);
+                        System.out.println("There's my teammate in sector: " + arrayOfConnectedSectors[i]);
                         return arrayOfConnectedSectors[i];
                     }
                 }
@@ -57,7 +57,7 @@ public class OtherPlayersAround {
                 for (int i = 0; i < connectedSectors.length(); i++) {
                     searchTeamRight(generator, i);
                     if (isPlayerRightHere) {
-                        System.out.println("There's someone in sector " + arrayOfConnectedSectors[i]);
+                        System.out.println("There's my teammate in sector: " + arrayOfConnectedSectors[i]);
                         return arrayOfConnectedSectors[i];
                     }
                 }
@@ -66,4 +66,6 @@ public class OtherPlayersAround {
         System.out.println("There's noone nearby - I think i shall move...");
         return 0;
     }
+
+
 }
