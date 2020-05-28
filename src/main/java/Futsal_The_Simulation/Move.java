@@ -2,7 +2,7 @@ package Futsal_The_Simulation;
 
 public class Move {
 
-    switch
+//    switch
 
 
 
