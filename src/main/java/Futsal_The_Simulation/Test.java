@@ -11,10 +11,15 @@ public class Test {
         FieldGenerator field = new FieldGenerator();
         field.loadSectors();
 
-        Attacker attacker = new Attacker(Teams.AS_RIGHT, 10);
+        Attacker attacker = new Attacker(Teams.FC_LEFT, 13);
+
+        Movement movement = new Movement();
+        movement.movingPlayerToHisFinalDestination(field, attacker);
 
         OtherPlayersAround search = new OtherPlayersAround();
         search.checkingForTeammates(field, attacker);
+
+
 
 
     }
