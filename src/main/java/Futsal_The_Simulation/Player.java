@@ -1,10 +1,11 @@
 package Futsal_The_Simulation;
 
 public abstract class Player {
-    public char move(PlayerSpecifications statistics, FieldGenerator){
-        statistics.getWhichSectorAmIIn();
-        /* make a move */
-        return moveDirection;
+
+    private int whichSectorAmIIn;
+    Teams myTeam;
+
+    public char move(){
     }
 
     public boolean pass(){
@@ -15,6 +16,13 @@ public abstract class Player {
         return true;
     }
 
+    public int getWhichSectorAmIIn() {
+        return whichSectorAmIIn;
+    }
+
+    public Teams getMyTeam() {
+        return myTeam;
+    }
 
 
 }

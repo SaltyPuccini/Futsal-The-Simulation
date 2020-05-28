@@ -19,4 +19,15 @@ public class Sectors {
         this.connectedSectors = connectedSectors;
     }
 
+    public JSONArray getConnectedSectors() {
+        return connectedSectors;
+    }
+
+    public boolean getIsPlayerLeftHere() {
+        return isPlayerLeftHere;
+    }
+
+    public boolean getIsPlayerRightHere() {
+        return isPlayerRightHere;
+    }
 }
