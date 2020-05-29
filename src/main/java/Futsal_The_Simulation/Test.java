@@ -11,7 +11,7 @@ public class Test {
         FieldGenerator field = new FieldGenerator();
         field.loadSectors();
 
-        Attacker attacker = new Attacker(Teams.FC_LEFT, 30);
+        Attacker attacker = new Attacker(Teams.FC_LEFT, 15);
 
         Movement movement = new Movement();
         movement.movingPlayerToHisFinalDestination(field, attacker);
