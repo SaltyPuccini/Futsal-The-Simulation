@@ -14,18 +14,17 @@ public class Test {
         Scanner scan = new Scanner(System.in);
         FieldGenerator field = new FieldGenerator();
         field.loadSectors();
-        ArrayList<Player> footballTeam12 = new ArrayList<>();
-        ArrayList<Player> footballTeam34 = new ArrayList<>();
+        ArrayList<Player> footballTeam = new ArrayList<>();
         Attacker attacker1 = new Attacker(Teams.FC_LEFT, 1);
         Attacker attacker2 = new Attacker(Teams.FC_LEFT, 17);
         Attacker attacker3 = new Attacker(Teams.AS_RIGHT, 8);
         Attacker attacker4 = new Attacker(Teams.AS_RIGHT, 30);
-        footballTeam12.add(attacker1);
-        footballTeam12.add(attacker2);
-        footballTeam34.add(attacker3);
-        footballTeam34.add(attacker4);
+        footballTeam.add(attacker1);
+        footballTeam.add(attacker2);
+        footballTeam.add(attacker3);
+        footballTeam.add(attacker4);
         input.askQuestionsAboutSimulationProperties(scan);
-        field.giveStartingSectorsInformationAboutPlayersPosition(footballTeam34, input.getSimulationProperties().get(1));
+        field.giveStartingSectorsInformationAboutPlayersPosition(footballTeam, input.getSimulationProperties().get(1));
 /*
         Midfielder midfielder = new Midfielder(Teams.AS_RIGHT, 14);
         Defender defender = new Defender(Teams.FC_LEFT, 8);

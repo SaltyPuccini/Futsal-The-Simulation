@@ -67,7 +67,7 @@ public class OtherPlayersOnThePitch {
                 }
                 break;
         }
-        System.out.println("There's noone nearby - I think i shall move...");
+        System.out.println("There's noone nearby");
         return 0;
     }
 
