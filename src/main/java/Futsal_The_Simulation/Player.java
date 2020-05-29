@@ -9,12 +9,8 @@ public abstract class Player {
         this.mySector=mySector;
     }
 
-    public char move() {
-
-        return '0';
-    }
-
     public boolean pass() {
+
         return true;
     }
 
