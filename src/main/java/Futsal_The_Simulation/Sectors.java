@@ -36,4 +36,8 @@ public class Sectors {
     public String getIsWallNextToMe() {
         return isWallNextToMe;
     }
+
+    public int getId() {
+        return id;
+    }
 }

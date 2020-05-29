@@ -91,7 +91,7 @@
     "id": 12,
     "connectedSectors": [7,11,13,17],
     "capacity": 3,
-    "isPlayerRightHere": false,
+    "isPlayerRightHere": true,
     "isPlayerLeftHere": false,
     "isWallNextToMe": "none"
   },
@@ -132,7 +132,7 @@
     "connectedSectors": [12,16,18,22],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false,
+    "isPlayerLeftHere": true,
     "isWallNextToMe": "none"
   },
   {
@@ -148,7 +148,7 @@
     "connectedSectors": [14,18,20,24],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false,
+    "isPlayerLeftHere": true,
     "isWallNextToMe": "none"
   },
   {
@@ -212,7 +212,7 @@
     "connectedSectors": [22,26,28],
     "capacity": 3,
     "isPlayerRightHere": false,
-    "isPlayerLeftHere": false,
+    "isPlayerLeftHere": true,
     "isWallNextToMe": "right"
   },
   {
