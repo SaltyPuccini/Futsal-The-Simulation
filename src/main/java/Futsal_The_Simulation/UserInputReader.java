@@ -18,9 +18,9 @@ public class UserInputReader {
     }
 
     public ArrayList<Integer> askQuestionsAboutSimulationProperties(Scanner scanFromUser) {
-        System.out.println("Ile minut ma trwaæ mecz?");
+        System.out.println("Type in match duration");
         int timeEstimated = scanFromUser.nextInt();
-        System.out.println("Ilu pi³karzy (nie licz¹c bramkarza) powinna liczyæ dru¿yna?");
+        System.out.println("Type in the number of players (except goalkeeper)");
         int teamsSize = scanFromUser.nextInt();
         return operateOnArrayListForSimulationProperties(timeEstimated, teamsSize);
     }
@@ -36,9 +36,9 @@ public class UserInputReader {
     }
 
     public ArrayList<Integer> askUserForAttackerSpecifications(Scanner scanFromUser) {
-        System.out.println("Podaj statystyke strzelania napastnika: ");
+        System.out.println("Type in attacker shooting stat: ");
         int shootingStat = scanFromUser.nextInt();
-        System.out.println("Podaj statystyke podania napastnika: ");
+        System.out.println("Type in attacker passing stat:  ");
         int passingStat = scanFromUser.nextInt();
         return operateOnArrayListForAttackerStats(shootingStat, passingStat);
     }
