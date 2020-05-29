@@ -36,9 +36,6 @@ public class Test {
         input.askUserForAttackerSpecifications(scan);
         TeamCreator team1 = new TeamCreator();
         team1.assignStatsToAttacker(attacker, input);
-        team1.assignStatsToMidfielder(midfielder, input);
-        team1.assignStatsToDefender(defender, input);
-
 
     }
 
