@@ -11,4 +11,3 @@ public class Attacker extends Player {
         this.passingStat = passingStat;
     }
 }
-
