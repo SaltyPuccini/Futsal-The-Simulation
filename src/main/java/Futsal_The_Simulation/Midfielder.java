@@ -4,8 +4,8 @@ public class Midfielder extends Player {
     private int shootingStat;
     private int defendingStat;
 
-    Midfielder(Teams myTeam, int mySector) {
-        super(myTeam, mySector);
+    Midfielder(Teams myTeam, int mySector, boolean inPossesion){
+        super(myTeam, mySector, inPossesion);
     }
 
     public void setStats(int shootingStat, int passingStat, int defendingStat) {

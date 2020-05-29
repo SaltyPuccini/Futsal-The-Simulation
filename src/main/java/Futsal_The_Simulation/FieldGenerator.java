@@ -11,10 +11,10 @@ import java.util.ArrayList;
 
 public class FieldGenerator {
 
-    private ArrayList<Sectors> allSectors = new ArrayList<>();
+    private ArrayList<Sector> allSectors = new ArrayList<>();
 
     public void addLocalVariablesToGlobalField(int id, int capacity, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere, String isWallNextToMe) {
-        Sectors sector = new Sectors(id, capacity, connectedSectors, isPlayerRightHere, isPlayerLeftHere, isWallNextToMe);
+        Sector sector = new Sector(id, capacity, connectedSectors, isPlayerRightHere, isPlayerLeftHere, isWallNextToMe);
         allSectors.add(sector);
     }
 
@@ -33,7 +33,7 @@ public class FieldGenerator {
         }
     }
 
-    public ArrayList<Sectors> getAllSectors() {
+    public ArrayList<Sector> getAllSectors() {
         return allSectors;
     }
 
@@ -55,7 +55,7 @@ public class FieldGenerator {
         }
     }
 
-    public void setAllSectors(ArrayList<Sectors> allSectors) {
+    public void setAllSectors(ArrayList<Sector> allSectors) {
         this.allSectors = allSectors;
     }
 

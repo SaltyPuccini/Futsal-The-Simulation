@@ -9,13 +9,14 @@ import java.util.Random;
 public class OtherPlayersOnThePitch {
     private Teams myTeam;
     private int mySector;
-    private Sectors mySectorThatWeCheck;
-    private JSONArray connectedSectors;
-    private int[] arrayOfConnectedSectors;
     private boolean isPlayerRightHere;
     private boolean isPlayerLeftHere;
-    private Sectors neighbourSectorToCheck;
-    private ArrayList<Integer> arrayOfFriendlyPosition = new ArrayList<>();
+    private Sector playersSectorThatWeCheck;
+    private Sector neighbourSectorToCheck;
+    private JSONArray connectedSectors;
+    private int[] arrayOfConnectedSectors;
+
+
 
     public void onWhomAmIOperating(Player player) {
         myTeam = player.getMyTeam();
@@ -24,8 +25,8 @@ public class OtherPlayersOnThePitch {
 
     public void gettingInformationAboutConnectedSectors(FieldGenerator generator, Player player) {
         onWhomAmIOperating(player);
-        mySectorThatWeCheck = generator.getAllSectors().get(mySector - 1);
-        connectedSectors = mySectorThatWeCheck.getConnectedSectors();
+        playersSectorThatWeCheck = generator.getAllSectors().get(mySector - 1);
+        connectedSectors = playersSectorThatWeCheck.getConnectedSectors();
     }
 
     public void fillingArrayOfConnectedSectors(FieldGenerator generator, Player player) throws JSONException {
@@ -71,27 +72,36 @@ public class OtherPlayersOnThePitch {
         return 0;
     }
 
-    public int drawSectorToPass() {
+
+
+
+
+
+    public int drawSectorAndPassItForward(ArrayList<Integer> arrayOfFriendlyPosition) {
         Random randomGenerator = new Random();
         int randomNumber = randomGenerator.nextInt(arrayOfFriendlyPosition.size());
         System.out.println("Hell yeah there's my teammate in sector number " + (arrayOfFriendlyPosition.get(randomNumber) + 1));
         return arrayOfFriendlyPosition.get(randomNumber) + 1;
     }
 
+
     public int checkingFarTeammatesPosition(FieldGenerator generator, Player player) {
         onWhomAmIOperating(player);
+        ArrayList<Integer> arrayOfFriendlyPosition = new ArrayList<>();
         for (int i = 0; i < generator.getAllSectors().size(); i++) {
-            Sectors sectorWeAreChecking = generator.getAllSectors().get(i);
+            Sector sectorWeAreChecking = generator.getAllSectors().get(i);
             switch (myTeam) {
                 case FC_LEFT:
                     if (sectorWeAreChecking.getIsPlayerLeftHere()) {
-                        if(sectorWeAreChecking.getId() != mySector)
-                        arrayOfFriendlyPosition.add(i);
+                        if (sectorWeAreChecking.getId() != mySector) {
+                            arrayOfFriendlyPosition.add(i);
+                        }
                     }
                     break;
                 case AS_RIGHT:
                     if (sectorWeAreChecking.getIsPlayerRightHere()) {
-                        arrayOfFriendlyPosition.add(i);
+                        if (sectorWeAreChecking.getId() != mySector)
+                            arrayOfFriendlyPosition.add(i);
                     }
                     break;
             }
@@ -100,7 +110,7 @@ public class OtherPlayersOnThePitch {
             System.out.println("There's noone to pass on the whole field!!! :<");
             return 0;
         }
-        return drawSectorToPass();
+        return drawSectorAndPassItForward(arrayOfFriendlyPosition);
     }
 
 }

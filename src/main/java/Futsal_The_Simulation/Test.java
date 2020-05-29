@@ -12,39 +12,51 @@ public class Test {
 
         UserInputReader input = new UserInputReader();
         Scanner scan = new Scanner(System.in);
+        Ball ball = new Ball(1, Teams.FC_LEFT);
+        Pass pass = new Pass();
+        Movement movement = new Movement();
         FieldGenerator field = new FieldGenerator();
+        OtherPlayersOnThePitch search = new OtherPlayersOnThePitch();
         field.loadSectors();
         ArrayList<Player> footballTeam = new ArrayList<>();
-        Attacker attacker1 = new Attacker(Teams.FC_LEFT, 1);
-        Attacker attacker2 = new Attacker(Teams.FC_LEFT, 17);
-        Attacker attacker3 = new Attacker(Teams.AS_RIGHT, 8);
-        Attacker attacker4 = new Attacker(Teams.AS_RIGHT, 30);
+        Attacker attacker1 = new Attacker(Teams.FC_LEFT, 1, false);
+        Attacker attacker2 = new Attacker(Teams.FC_LEFT, 3, false);
+        Attacker attacker3 = new Attacker(Teams.FC_LEFT, 17, false);
+        Attacker attacker4 = new Attacker(Teams.FC_LEFT, 30, false);
         footballTeam.add(attacker1);
         footballTeam.add(attacker2);
         footballTeam.add(attacker3);
         footballTeam.add(attacker4);
+
         input.askQuestionsAboutSimulationProperties(scan);
         field.giveStartingSectorsInformationAboutPlayersPosition(footballTeam, input.getSimulationProperties().get(1));
+
+        int i = 0;
+        while (i <input.getSimulationProperties().get(0)) {
+            attacker1.decideAmIOnTheBall(ball);
+            movement.movingPlayerToHisFinalDestination(field, attacker1, ball);
+            pass.passTheBallIfPossible(field, attacker1, ball);
+            attacker2.decideAmIOnTheBall(ball);
+            movement.movingPlayerToHisFinalDestination(field, attacker2, ball);
+            pass.passTheBallIfPossible(field, attacker2, ball);
+            attacker3.decideAmIOnTheBall(ball);
+            movement.movingPlayerToHisFinalDestination(field, attacker3, ball);
+            pass.passTheBallIfPossible(field, attacker3, ball);
+            attacker4.decideAmIOnTheBall(ball);
+            movement.movingPlayerToHisFinalDestination(field, attacker4, ball);
+            pass.passTheBallIfPossible(field, attacker4, ball);
+            i++;
+        }
+
+
+
+
+
 /*
-        Midfielder midfielder = new Midfielder(Teams.AS_RIGHT, 14);
-        Defender defender = new Defender(Teams.FC_LEFT, 8);
-        Movement movement = new Movement();
-        movement.movingPlayerToHisFinalDestination(field, attacker);
-*/
-
-        OtherPlayersOnThePitch search = new OtherPlayersOnThePitch();
-        search.checkingForNearbyTeammates(field, attacker3);
-
-/*
-        System.out.println(input.getSimulationProperties());
-
         input.askUserForAttackerSpecifications(scan);
         TeamCreator team1 = new TeamCreator();
         team1.assignStatsToAttacker(attacker, input);
 */
-
-        search.checkingFarTeammatesPosition(field, attacker3);
-
 
     }
 
