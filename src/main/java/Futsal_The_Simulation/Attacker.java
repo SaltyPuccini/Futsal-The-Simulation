@@ -2,12 +2,11 @@ package Futsal_The_Simulation;
 
 public class Attacker extends Player {
     private int shootingStat;
-    private int passingStat;
 
-
-    Attacker(Teams myTeam, int mySector) {
-
+    Attacker(Teams myTeam, int mySector, int passingStat, int shootingStat) {
         super(myTeam, mySector);
+        this.passingStat=passingStat;
+        this.shootingStat=shootingStat;
     }
 
     public void setStats(int shootingStat, int passingStat) {

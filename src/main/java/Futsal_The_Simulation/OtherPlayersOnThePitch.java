@@ -9,13 +9,13 @@ import java.util.Random;
 public class OtherPlayersOnThePitch {
     private Teams myTeam;
     private int mySector;
-    Sectors mySectorThatWeCheck;
-    JSONArray connectedSectors;
-    int[] arrayOfConnectedSectors;
-    boolean isPlayerRightHere;
-    boolean isPlayerLeftHere;
-    Sectors neighbourSectorToCheck;
-    ArrayList<Integer> arrayOfFriendlyPosition = new ArrayList<>();
+    private Sectors mySectorThatWeCheck;
+    private JSONArray connectedSectors;
+    private int[] arrayOfConnectedSectors;
+    private boolean isPlayerRightHere;
+    private boolean isPlayerLeftHere;
+    private Sectors neighbourSectorToCheck;
+    private ArrayList<Integer> arrayOfFriendlyPosition = new ArrayList<>();
 
     public void onWhomAmIOperating(Player player) {
         myTeam = player.getMyTeam();

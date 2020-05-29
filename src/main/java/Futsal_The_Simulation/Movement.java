@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Movement {
 
-    Random randomGenerator = new Random();
+    private Random randomGenerator = new Random();
     private Sectors sectorWeAreChecking;
 
     public Directions directionsBasedOnRandomNumber(int randomNumber) {
@@ -22,7 +22,7 @@ public class Movement {
     }
 
 
-    public Directions DirectionsICanNotGo() {
+    public Directions directionsICanNotGo() {
         String isWallNextToMe = sectorWeAreChecking.getIsWallNextToMe();
         switch (isWallNextToMe) {
             case "none":
@@ -66,7 +66,7 @@ public class Movement {
         if (cornerMovement != Directions.NONE) {
             return cornerMovement;
         }
-        do direction = drawingPlayerDirection(); while (direction == DirectionsICanNotGo());
+        do direction = drawingPlayerDirection(); while (direction == directionsICanNotGo());
         return direction;
     }
 

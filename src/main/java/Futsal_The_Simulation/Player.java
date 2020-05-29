@@ -1,8 +1,9 @@
 package Futsal_The_Simulation;
 
 public abstract class Player {
-    Teams myTeam;
-    int mySector;
+    private Teams myTeam;
+    private int mySector;
+    protected int passingStat;
 
     Player(Teams myTeam, int mySector) {
         this.myTeam=myTeam;

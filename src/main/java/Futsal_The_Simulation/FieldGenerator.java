@@ -13,12 +13,12 @@ public class FieldGenerator {
 
     private ArrayList <Sectors> allSectors = new ArrayList<>();
 
-    void addLocalVariablesToGlobalField(int id, int capacity, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere, String isWallNextToMe){
+    public void addLocalVariablesToGlobalField(int id, int capacity, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere, String isWallNextToMe){
         Sectors sector = new Sectors(id, capacity, connectedSectors, isPlayerRightHere, isPlayerLeftHere, isWallNextToMe);
         allSectors.add(sector);
     }
 
-    void loadSectors() throws IOException, JSONException {
+    public void loadSectors() throws IOException, JSONException {
         String path = new String(Files.readAllBytes(Paths.get("src/main/resources/sektory.json")));
         JSONArray jsonArray = new JSONArray(path);
         for(int i=0; i<jsonArray.length(); i++)
