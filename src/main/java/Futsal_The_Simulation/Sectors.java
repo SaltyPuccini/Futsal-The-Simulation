@@ -7,8 +7,8 @@ public class Sectors {
     private final int id;
     private final int capacity;
     private final JSONArray connectedSectors;
-    private final boolean isPlayerRightHere;
-    private final boolean isPlayerLeftHere;
+    private boolean isPlayerRightHere;
+    private boolean isPlayerLeftHere;
     private final String isWallNextToMe;
 
 
@@ -18,7 +18,7 @@ public class Sectors {
         this.id = id;
         this.capacity = capacity;
         this.connectedSectors = connectedSectors;
-        this.isWallNextToMe =isWallNextToMe;
+        this.isWallNextToMe = isWallNextToMe;
     }
 
     public JSONArray getConnectedSectors() {
@@ -40,4 +40,14 @@ public class Sectors {
     public int getId() {
         return id;
     }
+
+
+    public void setPlayerLeftHere(boolean playerLeftHere) {
+        isPlayerLeftHere = playerLeftHere;
+    }
+
+    public void setPlayerRightHere(boolean playerRightHere) {
+        isPlayerRightHere = playerRightHere;
+    }
+
 }

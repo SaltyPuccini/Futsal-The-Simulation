@@ -10,11 +10,6 @@ public abstract class Player {
         this.mySector=mySector;
     }
 
-    public boolean pass() {
-
-        return true;
-    }
-
     public boolean reception() {
         return true;
     }

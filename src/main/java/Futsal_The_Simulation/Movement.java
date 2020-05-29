@@ -70,6 +70,7 @@ public class Movement {
         return direction;
     }
 
+
     public void movingPlayerToHisFinalDestination(FieldGenerator field, Player player)
     {
         System.out.println("I guess i gotta go somewhere... Sector number "+player.getMySector() + " is no longer for me :/");

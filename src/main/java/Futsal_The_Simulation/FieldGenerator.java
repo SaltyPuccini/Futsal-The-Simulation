@@ -11,9 +11,9 @@ import java.util.ArrayList;
 
 public class FieldGenerator {
 
-    private ArrayList <Sectors> allSectors = new ArrayList<>();
+    private ArrayList<Sectors> allSectors = new ArrayList<>();
 
-    public void addLocalVariablesToGlobalField(int id, int capacity, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere, String isWallNextToMe){
+    public void addLocalVariablesToGlobalField(int id, int capacity, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere, String isWallNextToMe) {
         Sectors sector = new Sectors(id, capacity, connectedSectors, isPlayerRightHere, isPlayerLeftHere, isWallNextToMe);
         allSectors.add(sector);
     }
@@ -21,15 +21,14 @@ public class FieldGenerator {
     public void loadSectors() throws IOException, JSONException {
         String path = new String(Files.readAllBytes(Paths.get("src/main/resources/sektory.json")));
         JSONArray jsonArray = new JSONArray(path);
-        for(int i=0; i<jsonArray.length(); i++)
-        {
+        for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
             int id = jsonObject.getInt("id");
-            int capacity=jsonObject.getInt("capacity");
-            boolean isPlayerRightHere=jsonObject.getBoolean("isPlayerRightHere");
-            boolean isPlayerLeftHere=jsonObject.getBoolean("isPlayerLeftHere");
-            JSONArray connectedSectors=jsonObject.getJSONArray("connectedSectors");
-            String isWallNextToMe=jsonObject.getString("isWallNextToMe");
+            int capacity = jsonObject.getInt("capacity");
+            boolean isPlayerRightHere = jsonObject.getBoolean("isPlayerRightHere");
+            boolean isPlayerLeftHere = jsonObject.getBoolean("isPlayerLeftHere");
+            JSONArray connectedSectors = jsonObject.getJSONArray("connectedSectors");
+            String isWallNextToMe = jsonObject.getString("isWallNextToMe");
             addLocalVariablesToGlobalField(id, capacity, connectedSectors, isPlayerRightHere, isPlayerLeftHere, isWallNextToMe);
         }
     }
@@ -37,4 +36,53 @@ public class FieldGenerator {
     public ArrayList<Sectors> getAllSectors() {
         return allSectors;
     }
+
+    public void giveInformationPlayerLeaving(Player player) {
+        if (player.getMyTeam() == Teams.FC_LEFT) {
+            allSectors.get(player.getMySector() - 1).setPlayerLeftHere(false);
+        }
+        if (player.getMyTeam() == Teams.AS_RIGHT) {
+            allSectors.get(player.getMySector() - 1).setPlayerRightHere(false);
+        }
+    }
+
+    public void giveInformationPlayerAppearing(Player player) {
+        if (player.getMyTeam() == Teams.FC_LEFT) {
+            allSectors.get(player.getMySector() - 1).setPlayerLeftHere(true);
+        }
+        if (player.getMyTeam() == Teams.AS_RIGHT) {
+            allSectors.get(player.getMySector() - 1).setPlayerRightHere(true);
+        }
+    }
+
+    public void setAllSectors(ArrayList<Sectors> allSectors) {
+        this.allSectors = allSectors;
+    }
+
+    public void giveStartingSectorsInformationAboutPlayersPosition(ArrayList<Player> player, int sizeOfTeam) {
+        for (int i = 0; i < sizeOfTeam; i++) {
+            for (int k = 0; k < 30; k++) {
+                if (player.get(i).getMySector() == getAllSectors().get(k).getId()) {
+                    if (player.get(i).getMyTeam() == Teams.FC_LEFT) {
+                        getAllSectors().get(k).setPlayerLeftHere(true);
+                        System.out.println("I set field number " + (k + 1) + "  with player left");
+                    }
+                    if (player.get(i).getMyTeam() == Teams.AS_RIGHT) {
+                        getAllSectors().get(k).setPlayerRightHere(true);
+                        System.out.println("I set field number " + (k + 1) + "  with player right");
+                    }
+                }
+            }
+        }
+    }
+
+
 }
+/* zaczynaj¹c symulacjê:
+1. wczytujemy info z JSONA o boisku za pomoc¹ loadSectors;
+2. pytamy o specyfikacje symulacji i tworzymy pi³karzy;
+3. wczytujemy info o pozycjach pi³karzy do allSectors za pomoc¹ metody giveStartingSectorsInformationAboutPlayersPosition;
+4. za ka¿dym razem, gdy player siê porusza:
+    - giveInformationPlayerLeaving usuwa info o miejscu pobytu gracza z allSectors
+    - giveInformationPlayerAppearing podaje info o miejscu nowego pobytu gracza do allSectors
+ */
