@@ -30,12 +30,11 @@ public class Test {
         input.askQuestionsAboutSimulationProperties(scan);
 
         System.out.println(input.getSimulationProperties());
-        int i=input.getSimulationProperties().get(0);
-        System.out.println(i);
 
         input.askUserForAttackerSpecifications(scan);
         TeamCreator team1 = new TeamCreator();
         team1.assignStatsToAttacker(attacker, input);
+
 
     }
 

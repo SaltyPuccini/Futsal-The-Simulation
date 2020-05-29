@@ -13,6 +13,7 @@ public class Attacker extends Player {
     public void setStats(int shootingStat, int passingStat) {
         this.shootingStat = shootingStat;
         this.passingStat = passingStat;
+        System.out.println("My shooting stats are: " + shootingStat + " and my passing stats are " + passingStat);
     }
 }
 
