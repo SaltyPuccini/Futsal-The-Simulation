@@ -16,24 +16,26 @@ public class Test {
         FieldGenerator field = new FieldGenerator();
         field.loadSectors();
 
-        Attacker attacker = new Attacker(Teams.FC_LEFT, 27);
-        Midfielder midfielder = new Midfielder(Teams.AS_RIGHT, 14);
-        Defender defender = new Defender(Teams.FC_LEFT, 8);
+        Attacker attacker = new Attacker(Teams.FC_LEFT, 1);
+//        Midfielder midfielder = new Midfielder(Teams.AS_RIGHT, 14);
+//        Defender defender = new Defender(Teams.FC_LEFT, 8);
 
-        Movement movement = new Movement();
-        movement.movingPlayerToHisFinalDestination(field, attacker);
+//        Movement movement = new Movement();
+//        movement.movingPlayerToHisFinalDestination(field, attacker);
 
-        OtherPlayersAround search = new OtherPlayersAround();
-        search.checkingForTeammates(field, attacker);
+        OtherPlayersOnThePitch search = new OtherPlayersOnThePitch();
+        search.checkingForNearbyTeammates(field, attacker);
 
-        input = new UserInputReader();
-        input.askQuestionsAboutSimulationProperties(scan);
+//        input = new UserInputReader();
+//        input.askQuestionsAboutSimulationProperties(scan);
+//
+//        System.out.println(input.getSimulationProperties());
+//
+//        input.askUserForAttackerSpecifications(scan);
+//        TeamCreator team1 = new TeamCreator();
+//        team1.assignStatsToAttacker(attacker, input);
 
-        System.out.println(input.getSimulationProperties());
-
-        input.askUserForAttackerSpecifications(scan);
-        TeamCreator team1 = new TeamCreator();
-        team1.assignStatsToAttacker(attacker, input);
+        search.checkingFarTeammatesPosition(field, attacker);
 
 
     }

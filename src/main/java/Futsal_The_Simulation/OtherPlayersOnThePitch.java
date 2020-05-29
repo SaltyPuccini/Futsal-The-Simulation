@@ -3,7 +3,10 @@ package Futsal_The_Simulation;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-public class OtherPlayersAround {
+import java.util.ArrayList;
+import java.util.Random;
+
+public class OtherPlayersOnThePitch {
     private Teams myTeam;
     private int mySector;
     Sectors mySectorThatWeCheck;
@@ -12,6 +15,7 @@ public class OtherPlayersAround {
     boolean isPlayerRightHere;
     boolean isPlayerLeftHere;
     Sectors neighbourSectorToCheck;
+    ArrayList<Integer> arrayOfFriendlyPosition = new ArrayList<>();
 
     public void onWhomAmIOperating(Player player) {
         myTeam = player.getMyTeam();
@@ -41,7 +45,7 @@ public class OtherPlayersAround {
         isPlayerRightHere = neighbourSectorToCheck.getIsPlayerRightHere();
     }
 
-    public int checkingForTeammates(FieldGenerator generator, Player player) throws JSONException {
+    public int checkingForNearbyTeammates(FieldGenerator generator, Player player) throws JSONException {
         fillingArrayOfConnectedSectors(generator, player);
         switch (myTeam) {
             case FC_LEFT:
@@ -66,4 +70,37 @@ public class OtherPlayersAround {
         System.out.println("There's noone nearby - I think i shall move...");
         return 0;
     }
+
+    public int drawSectorToPass() {
+        Random randomGenerator = new Random();
+        int randomNumber = randomGenerator.nextInt(arrayOfFriendlyPosition.size());
+        System.out.println("Hell yeah there's my teammate in sector number " + (arrayOfFriendlyPosition.get(randomNumber) + 1));
+        return arrayOfFriendlyPosition.get(randomNumber) + 1;
+    }
+
+    public int checkingFarTeammatesPosition(FieldGenerator generator, Player player) {
+        onWhomAmIOperating(player);
+        for (int i = 0; i < generator.getAllSectors().size(); i++) {
+            Sectors sectorWeAreChecking = generator.getAllSectors().get(i);
+            switch (myTeam) {
+                case FC_LEFT:
+                    if (sectorWeAreChecking.getIsPlayerLeftHere()) {
+                        if(sectorWeAreChecking.getId() != mySector)
+                        arrayOfFriendlyPosition.add(i);
+                    }
+                    break;
+                case AS_RIGHT:
+                    if (sectorWeAreChecking.getIsPlayerRightHere()) {
+                        arrayOfFriendlyPosition.add(i);
+                    }
+                    break;
+            }
+        }
+        if (arrayOfFriendlyPosition.size() == 0) {
+            System.out.println("There's noone to pass on the whole field!!! :<");
+            return 0;
+        }
+        return drawSectorToPass();
+    }
+
 }
