@@ -18,8 +18,8 @@ public class Test {
         ArrayList<Player> footballTeam34 = new ArrayList<>();
         Attacker attacker1 = new Attacker(Teams.FC_LEFT, 1);
         Attacker attacker2 = new Attacker(Teams.FC_LEFT, 17);
-        Attacker attacker3 = new Attacker(Teams.AS_RIGHT, 8);
-        Attacker attacker4 = new Attacker(Teams.AS_RIGHT, 30);
+        Attacker attacker3 = new Attacker(Teams.AS_RIGHT, 15);
+        Attacker attacker4 = new Attacker(Teams.AS_RIGHT, 14);
         footballTeam12.add(attacker1);
         footballTeam12.add(attacker2);
         footballTeam34.add(attacker3);

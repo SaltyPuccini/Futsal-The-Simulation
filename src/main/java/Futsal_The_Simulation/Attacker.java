@@ -13,4 +13,3 @@ public class Attacker extends Player {
         System.out.println("My shooting stats are: " + shootingStat + " and my passing stats are " + passingStat);
     }
 }
-

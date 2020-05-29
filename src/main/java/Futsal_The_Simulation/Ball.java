@@ -1,6 +1,6 @@
 package Futsal_The_Simulation;
 
-public class Pilka {
+public class Ball {
     int sectorOfTheBall;
     int teamOfTheBall;
 
