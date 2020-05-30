@@ -2,7 +2,7 @@ package Futsal_The_Simulation;
 
 import org.json.JSONArray;
 
-public class Sectors {
+public class Sector {
 
     private final int id;
     private final int capacity;
@@ -12,7 +12,7 @@ public class Sectors {
     private final String isWallNextToMe;
 
 
-    Sectors(int id, int capacity, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere, String isWallNextToMe) {
+    Sector(int id, int capacity, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere, String isWallNextToMe) {
         this.isPlayerRightHere = isPlayerRightHere;
         this.isPlayerLeftHere = isPlayerLeftHere;
         this.id = id;

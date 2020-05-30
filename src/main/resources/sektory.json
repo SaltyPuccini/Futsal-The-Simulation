@@ -5,7 +5,6 @@
   "isPlayerRightHere": false,
   "isPlayerLeftHere": false,
   "isWallNextToMe": "left_up_corner"
-
   },
   {
     "id": 2,
@@ -33,7 +32,7 @@
   },
   {
     "id": 5,
-    "connectedSectors": [4,10],
+    "connectedSectors": [4,9,10],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -41,7 +40,7 @@
   },
   {
     "id": 6,
-    "connectedSectors": [1,7,11],
+    "connectedSectors": [1,2,7,11,12],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -49,7 +48,7 @@
   },
   {
     "id": 7,
-    "connectedSectors": [2,6,8,12],
+    "connectedSectors": [1,2,3,6,8,11,12,13],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -57,7 +56,7 @@
   },
   {
     "id": 8,
-    "connectedSectors": [3,7,9,13],
+    "connectedSectors": [2,3,4,7,9,12,13,14],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -65,7 +64,7 @@
   },
   {
     "id": 9,
-    "connectedSectors": [4,8,10,14],
+    "connectedSectors": [3,4,5,8,10,13,14,15],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -73,7 +72,7 @@
   },
   {
     "id": 10,
-    "connectedSectors": [5,9,15],
+    "connectedSectors": [4,5,9,14,15],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -81,7 +80,7 @@
   },
   {
     "id": 11,
-    "connectedSectors": [6,12,16],
+    "connectedSectors": [6,7,12,16,17],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -89,7 +88,7 @@
   },
   {
     "id": 12,
-    "connectedSectors": [7,11,13,17],
+    "connectedSectors": [6,7,8,11,13,16,17,18],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -97,7 +96,7 @@
   },
   {
     "id": 13,
-    "connectedSectors": [8,12,14,18],
+    "connectedSectors": [7,8,9,12,14,17,18,19],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -105,7 +104,7 @@
   },
   {
     "id": 14,
-    "connectedSectors": [9,13,15,19],
+    "connectedSectors": [8,9,10,13,15,18,19,20],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -113,7 +112,7 @@
   },
   {
     "id": 15,
-    "connectedSectors": [10,14,20],
+    "connectedSectors": [9,10,14,19,20],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -121,7 +120,7 @@
   },
   {
     "id": 16,
-    "connectedSectors": [11,17,21],
+    "connectedSectors": [11,12,17,21,22],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -129,7 +128,7 @@
   },
   {
     "id": 17,
-    "connectedSectors": [12,16,18,22],
+    "connectedSectors": [11,12,13,16,18,21,22,23],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -137,7 +136,7 @@
   },
   {
     "id": 18,
-    "connectedSectors": [13,17,19,23],
+    "connectedSectors": [12,13,14,17,19,22,23,24],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -145,7 +144,7 @@
   },
   {
     "id": 19,
-    "connectedSectors": [14,18,20,24],
+    "connectedSectors": [13,14,15,18,20,23,24,25],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -153,7 +152,7 @@
   },
   {
     "id": 20,
-    "connectedSectors": [15,19,25],
+    "connectedSectors": [14,15,19,24,25],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -161,7 +160,7 @@
   },
   {
     "id": 21,
-    "connectedSectors": [16,22,26],
+    "connectedSectors": [16,17,22,26,27],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -169,7 +168,7 @@
   },
   {
     "id": 22,
-    "connectedSectors": [17,21,23,27],
+    "connectedSectors": [16,17,18,21,23,26.27,28],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -177,7 +176,7 @@
   },
   {
     "id": 23,
-    "connectedSectors": [18,22,24,28],
+    "connectedSectors": [17,18,19,22,24,27,28,29],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -185,7 +184,7 @@
   },
   {
     "id": 24,
-    "connectedSectors": [19,23,25,29],
+    "connectedSectors": [18,19,20,23,25,28,29,30],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -193,7 +192,7 @@
   },
   {
     "id": 25,
-    "connectedSectors": [20,24,30],
+    "connectedSectors": [19,20,24,29,30],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -201,7 +200,7 @@
   },
   {
     "id": 26,
-    "connectedSectors": [21,27],
+    "connectedSectors": [21,22,27],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -209,7 +208,7 @@
   },
   {
     "id": 27,
-    "connectedSectors": [22,26,28],
+    "connectedSectors": [21,22,23,26,28],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -217,7 +216,7 @@
   },
   {
     "id": 28,
-    "connectedSectors": [23,27,29],
+    "connectedSectors": [22,23,24,27,29],
     "capacity": 2,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -225,7 +224,7 @@
   },
   {
     "id": 29,
-    "connectedSectors": [24,28,30],
+    "connectedSectors": [23,24,25,28,30],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,
@@ -233,7 +232,7 @@
   },
   {
     "id": 30,
-    "connectedSectors": [25,29],
+    "connectedSectors": [24,25,29],
     "capacity": 3,
     "isPlayerRightHere": false,
     "isPlayerLeftHere": false,

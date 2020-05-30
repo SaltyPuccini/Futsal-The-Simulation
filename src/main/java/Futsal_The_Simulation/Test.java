@@ -12,40 +12,51 @@ public class Test {
 
         UserInputReader input = new UserInputReader();
         Scanner scan = new Scanner(System.in);
-        FieldGenerator field = new FieldGenerator();
-        field.loadSectors();
-        ArrayList<Player> footballTeam12 = new ArrayList<>();
-        ArrayList<Player> footballTeam34 = new ArrayList<>();
-        Attacker attacker1 = new Attacker(Teams.FC_LEFT, 1);
-        Attacker attacker2 = new Attacker(Teams.FC_LEFT, 17);
-        Attacker attacker3 = new Attacker(Teams.AS_RIGHT, 15);
-        Attacker attacker4 = new Attacker(Teams.AS_RIGHT, 14);
-        footballTeam12.add(attacker1);
-        footballTeam12.add(attacker2);
-        footballTeam34.add(attacker3);
-        footballTeam34.add(attacker4);
-        input.askQuestionsAboutSimulationProperties(scan);
-        field.giveStartingSectorsInformationAboutPlayersPosition(footballTeam34, input.getSimulationProperties().get(1));
-/*
-        Midfielder midfielder = new Midfielder(Teams.AS_RIGHT, 14);
-        Defender defender = new Defender(Teams.FC_LEFT, 8);
+        Ball ball = new Ball(1, Teams.FC_LEFT);
+        Pass pass = new Pass();
         Movement movement = new Movement();
-        movement.movingPlayerToHisFinalDestination(field, attacker);
-*/
-
+        FieldGenerator field = new FieldGenerator();
         OtherPlayersOnThePitch search = new OtherPlayersOnThePitch();
-        search.checkingForNearbyTeammates(field, attacker3);
+        field.loadSectors();
+        ArrayList<Player> footballTeam = new ArrayList<>();
+        Attacker attacker1 = new Attacker(Teams.FC_LEFT, 1, false, 0, 0, 0);
+        Attacker attacker2 = new Attacker(Teams.FC_LEFT, 25, false, 0, 0, 0);
+        Attacker attacker3 = new Attacker(Teams.AS_RIGHT, 2, false, 0, 0, 100);
+        Attacker attacker4 = new Attacker(Teams.AS_RIGHT, 24, false, 0, 0, 100);
+        footballTeam.add(attacker1);
+        footballTeam.add(attacker2);
+        footballTeam.add(attacker3);
+        footballTeam.add(attacker4);
+
+        input.askQuestionsAboutSimulationProperties(scan);
+        field.giveStartingSectorsInformationAboutPlayersPosition(footballTeam, input.getSimulationProperties().get(1));
+
+        for (int i = 0; i<input.getSimulationProperties().get(0);i++) {
+            attacker1.decideAmIOnTheBall(ball);
+            movement.movingPlayerToHisFinalDestination(field, attacker1, ball);
+            attacker3.interception(field, ball);
+            attacker3.decideAmIOnTheBall(ball);
+            movement.movingPlayerToHisFinalDestination(field, attacker3, ball);
+            pass.passTheBallIfPossible(field, attacker3, ball);
+            attacker2.decideAmIOnTheBall(ball);
+            movement.movingPlayerToHisFinalDestination(field, attacker2, ball);
+            pass.passTheBallIfPossible(field, attacker2, ball);
+            attacker2.interception(field, ball);
+            attacker4.decideAmIOnTheBall(ball);
+            movement.movingPlayerToHisFinalDestination(field, attacker4, ball);
+            pass.passTheBallIfPossible(field, attacker4, ball);
+            attacker4.interception(field, ball);
+        }
+
+
+
+
 
 /*
-        System.out.println(input.getSimulationProperties());
-
         input.askUserForAttackerSpecifications(scan);
         TeamCreator team1 = new TeamCreator();
         team1.assignStatsToAttacker(attacker, input);
 */
-
-        search.checkingFarTeammatesPosition(field, attacker3);
-
 
     }
 

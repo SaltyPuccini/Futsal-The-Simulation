@@ -5,7 +5,7 @@ import java.util.Random;
 public class Movement {
 
     private Random randomGenerator = new Random();
-    private Sectors sectorWeAreChecking;
+    private Sector sectorWeAreChecking;
 
     public Directions directionsBasedOnRandomNumber(int randomNumber) {
         switch (randomNumber) {
@@ -53,14 +53,14 @@ public class Movement {
     }
 
     public Directions drawingPlayerDirection() {
-        int randomNumber = randomGenerator.nextInt(4)+1;
+        int randomNumber = randomGenerator.nextInt(4) + 1;
         return directionsBasedOnRandomNumber(randomNumber);
     }
 
 
     public Directions choosingFinalDestination(FieldGenerator field, Player player) {
         int playerSector = player.getMySector();
-        sectorWeAreChecking = field.getAllSectors().get(playerSector-1);
+        sectorWeAreChecking = field.getAllSectors().get(playerSector - 1);
         Directions direction;
         Directions cornerMovement = directionsWhenInCorner();
         if (cornerMovement != Directions.NONE) {
@@ -70,27 +70,49 @@ public class Movement {
         return direction;
     }
 
-
-    public void movingPlayerToHisFinalDestination(FieldGenerator field, Player player)
-    {
-        System.out.println("I guess i gotta go somewhere... Sector number "+player.getMySector() + " is no longer for me :/");
-        switch (choosingFinalDestination(field, player))
-        {
-            case UP:
-                player.setMySector(player.getMySector()-1);
-                break;
-            case DOWN:
-                player.setMySector(player.getMySector()+1);
-                break;
-            case RIGHT:
-                player.setMySector(player.getMySector()+5);
-                break;
-            case LEFT:
-                player.setMySector(player.getMySector()-5);
-                break;
+    public void moveBallWithPlayer(Player player, Ball ball) {
+        if (player.getAmIOnTheBall()) {
+            ball.setSectorOfTheBall(player.getMySector());
+            System.out.println("I took the ball with me since it belongs to me!");
         }
-        System.out.println("I reached sector number " + player.getMySector());
     }
 
+    public boolean isThereMyTeammateWhereIWantToGo(FieldGenerator field, Player player){
+        if(player.getMyTeam()==Teams.AS_RIGHT)
+        return (field.getAllSectors().get(player.getMySector()-1).getIsPlayerRightHere());
+        else
+        return (field.getAllSectors().get(player.getMySector()-1).getIsPlayerLeftHere());
+    }
+
+    public void movingPlayerToHisFinalDestination(FieldGenerator field, Player player, Ball ball) {
+        field.giveInformationPlayerLeaving(player);
+        System.out.println("I guess i gotta go somewhere from sector number " + player.getMySector());
+        int current=player.getMySector();
+        int howManyTimesIteration = 0;
+        do {
+            player.setMySector(current);
+            switch (choosingFinalDestination(field, player)) {
+                case UP:
+                    player.setMySector(player.getMySector() - 1);
+                    break;
+                case DOWN:
+                    player.setMySector(player.getMySector() + 1);
+                    break;
+                case RIGHT:
+                    player.setMySector(player.getMySector() + 5);
+                    break;
+                case LEFT:
+                    player.setMySector(player.getMySector() - 5);
+                    break;
+            }
+            howManyTimesIteration++;
+        } while (isThereMyTeammateWhereIWantToGo(field, player)||howManyTimesIteration<6); //unikamy  nieskoñczonej pêtli, jak 6 razy z niej nie wyjdzie - zostaje w miejscu
+        if (howManyTimesIteration==6)
+            player.setMySector(current);
+        field.giveInformationPlayerAppearing(player);
+        System.out.println("I reached sector number " + player.getMySector());
+        moveBallWithPlayer(player, ball);
+
+    }
 }
 
