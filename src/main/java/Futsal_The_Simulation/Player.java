@@ -73,7 +73,7 @@ public abstract class Player {
     }
 
     public void interception(FieldGenerator field, Ball ball) {
-        if(!getAmIOnTheBall())
+        if(!amIOnTheBall)
         switch (myTeam) {
             case FC_LEFT:
                 decideIfInterceptionFCLeftSucceed(field, ball);
