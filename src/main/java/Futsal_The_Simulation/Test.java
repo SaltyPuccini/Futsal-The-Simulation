@@ -19,10 +19,10 @@ public class Test {
         OtherPlayersOnThePitch search = new OtherPlayersOnThePitch();
         field.loadSectors();
         ArrayList<Player> footballTeam = new ArrayList<>();
-        Attacker attacker1 = new Attacker(Teams.FC_LEFT, 1, false);
-        Attacker attacker2 = new Attacker(Teams.FC_LEFT, 3, false);
-        Attacker attacker3 = new Attacker(Teams.FC_LEFT, 17, false);
-        Attacker attacker4 = new Attacker(Teams.FC_LEFT, 30, false);
+        Attacker attacker1 = new Attacker(Teams.FC_LEFT, 1, false, 0, 0, 0);
+        Attacker attacker2 = new Attacker(Teams.FC_LEFT, 25, false, 0, 0, 0);
+        Attacker attacker3 = new Attacker(Teams.AS_RIGHT, 2, false, 0, 0, 100);
+        Attacker attacker4 = new Attacker(Teams.AS_RIGHT, 24, false, 0, 0, 100);
         footballTeam.add(attacker1);
         footballTeam.add(attacker2);
         footballTeam.add(attacker3);
@@ -31,21 +31,21 @@ public class Test {
         input.askQuestionsAboutSimulationProperties(scan);
         field.giveStartingSectorsInformationAboutPlayersPosition(footballTeam, input.getSimulationProperties().get(1));
 
-        int i = 0;
-        while (i <input.getSimulationProperties().get(0)) {
+        for (int i = 0; i<input.getSimulationProperties().get(0);i++) {
             attacker1.decideAmIOnTheBall(ball);
             movement.movingPlayerToHisFinalDestination(field, attacker1, ball);
-            pass.passTheBallIfPossible(field, attacker1, ball);
-            attacker2.decideAmIOnTheBall(ball);
-            movement.movingPlayerToHisFinalDestination(field, attacker2, ball);
-            pass.passTheBallIfPossible(field, attacker2, ball);
+            attacker3.interception(field, ball);
             attacker3.decideAmIOnTheBall(ball);
             movement.movingPlayerToHisFinalDestination(field, attacker3, ball);
             pass.passTheBallIfPossible(field, attacker3, ball);
+            attacker2.decideAmIOnTheBall(ball);
+            movement.movingPlayerToHisFinalDestination(field, attacker2, ball);
+            pass.passTheBallIfPossible(field, attacker2, ball);
+            attacker2.interception(field, ball);
             attacker4.decideAmIOnTheBall(ball);
             movement.movingPlayerToHisFinalDestination(field, attacker4, ball);
             pass.passTheBallIfPossible(field, attacker4, ball);
-            i++;
+            attacker4.interception(field, ball);
         }
 
 

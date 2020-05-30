@@ -77,14 +77,18 @@ public class Movement {
         }
     }
 
-    public boolean isThereAnyoneWhereIWantToGo (FieldGenerator field, Player player){
-        return (field.getAllSectors().get(player.getMySector()-1).getIsPlayerLeftHere() || field.getAllSectors().get(player.getMySector()-1).getIsPlayerRightHere());
+    public boolean isThereMyTeammateWhereIWantToGo(FieldGenerator field, Player player){
+        if(player.getMyTeam()==Teams.AS_RIGHT)
+        return (field.getAllSectors().get(player.getMySector()-1).getIsPlayerRightHere());
+        else
+        return (field.getAllSectors().get(player.getMySector()-1).getIsPlayerLeftHere());
     }
 
     public void movingPlayerToHisFinalDestination(FieldGenerator field, Player player, Ball ball) {
         field.giveInformationPlayerLeaving(player);
         System.out.println("I guess i gotta go somewhere from sector number " + player.getMySector());
         int current=player.getMySector();
+        int howManyTimesIteration = 0;
         do {
             player.setMySector(current);
             switch (choosingFinalDestination(field, player)) {
@@ -101,7 +105,10 @@ public class Movement {
                     player.setMySector(player.getMySector() - 5);
                     break;
             }
-        } while (isThereAnyoneWhereIWantToGo(field, player));
+            howManyTimesIteration++;
+        } while (isThereMyTeammateWhereIWantToGo(field, player)||howManyTimesIteration<6); //unikamy  nieskoñczonej pêtli, jak 6 razy z niej nie wyjdzie - zostaje w miejscu
+        if (howManyTimesIteration==6)
+            player.setMySector(current);
         field.giveInformationPlayerAppearing(player);
         System.out.println("I reached sector number " + player.getMySector());
         moveBallWithPlayer(player, ball);

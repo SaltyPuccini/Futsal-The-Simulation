@@ -9,7 +9,8 @@ public class Pass {
     public void decideWhetherPassFarOrNear(FieldGenerator field, Player player, Ball ball) throws JSONException {
         System.out.println("Ball is in sector " + ball.getSectorOfTheBall());
         int positionOfSomeoneNearby = otherPlayers.checkingForNearbyTeammates(field, player);
-        if (positionOfSomeoneNearby == 0) {
+        if (positionOfSomeoneNearby == 0 || positionOfSomeoneNearby<=player.getMySector()-1) {
+            //ten if za³atwia podania tylko do przodu/boku
             passFar(field, player, ball);
             System.out.println("I passed Far, now ball is in sector " + ball.getSectorOfTheBall());
         } else {

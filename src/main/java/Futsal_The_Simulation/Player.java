@@ -1,15 +1,22 @@
 package Futsal_The_Simulation;
 
+import java.util.Random;
+
 public abstract class Player {
     private Teams myTeam;
     private int mySector;
     protected int passingStat;
+    protected int shootingStat;
+    protected int defendingStat;
     boolean amIOnTheBall;
 
-    Player(Teams myTeam, int mySector, boolean amIOnTheBall) {
+    Player(Teams myTeam, int mySector, boolean amIOnTheBall, int shootingStat, int passingStat, int defendingStat) {
         this.myTeam = myTeam;
         this.mySector = mySector;
         this.amIOnTheBall = amIOnTheBall;
+        this.defendingStat = defendingStat;
+        this.passingStat = passingStat;
+        this.shootingStat = shootingStat;
     }
 
     public boolean reception() {
@@ -39,6 +46,41 @@ public abstract class Player {
         } else {
             amIOnTheBall = false;
             System.out.println("I'm not on the ball");
+        }
+    }
+
+    public void decideIfInterceptionASRightSucceed(FieldGenerator field, Ball ball){
+        Random randomGenerator = new Random();
+        if (field.getAllSectors().get(mySector-1).getIsPlayerLeftHere()){
+            int willISucceed = defendingStat + randomGenerator.nextInt(100);
+            if(willISucceed>100){
+                ball.setTeamOfTheBall(Teams.AS_RIGHT);
+                decideAmIOnTheBall(ball);
+                System.out.println("Interception succeeded");
+            }
+        }
+    }
+
+    public void decideIfInterceptionFCLeftSucceed(FieldGenerator field, Ball ball){
+        Random randomGenerator = new Random();
+        if (field.getAllSectors().get(mySector-1).getIsPlayerRightHere()){
+            int willISucceed = defendingStat + randomGenerator.nextInt(100);
+            if(willISucceed>100){
+                ball.setTeamOfTheBall(Teams.FC_LEFT);
+                decideAmIOnTheBall(ball);
+            }
+        }
+    }
+
+    public void interception(FieldGenerator field, Ball ball) {
+        if(!getAmIOnTheBall())
+        switch (myTeam) {
+            case FC_LEFT:
+                decideIfInterceptionFCLeftSucceed(field, ball);
+                break;
+            case AS_RIGHT:
+                decideIfInterceptionASRightSucceed(field, ball);
+
         }
     }
 }
