@@ -19,10 +19,6 @@ public abstract class Player {
         this.shootingStat = shootingStat;
     }
 
-    public boolean reception() {
-        return true;
-    }
-
     public Teams getMyTeam() {
         return myTeam;
     }

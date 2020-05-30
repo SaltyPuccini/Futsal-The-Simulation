@@ -87,10 +87,10 @@ public class Movement {
     public void movingPlayerToHisFinalDestination(FieldGenerator field, Player player, Ball ball) {
         field.giveInformationPlayerLeaving(player);
         System.out.println("I guess i gotta go somewhere from sector number " + player.getMySector());
-        int current=player.getMySector();
+        int currentLocation=player.getMySector();
         int howManyTimesIteration = 0;
         do {
-            player.setMySector(current);
+            player.setMySector(currentLocation);
             switch (choosingFinalDestination(field, player)) {
                 case UP:
                     player.setMySector(player.getMySector() - 1);
@@ -106,9 +106,9 @@ public class Movement {
                     break;
             }
             howManyTimesIteration++;
-        } while (isThereMyTeammateWhereIWantToGo(field, player)||howManyTimesIteration<6); //unikamy  nieskoñczonej pêtli, jak 6 razy z niej nie wyjdzie - zostaje w miejscu
+        } while (isThereMyTeammateWhereIWantToGo(field, player)&&howManyTimesIteration<6); //unikamy  nieskoñczonej pêtli, jak 6 razy z niej nie wyjdzie - zostaje w miejscu
         if (howManyTimesIteration==6)
-            player.setMySector(current);
+            player.setMySector(currentLocation);
         field.giveInformationPlayerAppearing(player);
         System.out.println("I reached sector number " + player.getMySector());
         moveBallWithPlayer(player, ball);
