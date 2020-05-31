@@ -28,7 +28,7 @@ public class Test {
 
 
         ArrayList<Player> teamFCLEFT = new ArrayList<>();
-        Attacker attacker1Left = new Attacker(Teams.FC_LEFT, 23, false, 90, 40, 0, 9);
+        Attacker attacker1Left = new Attacker(Teams.FC_LEFT, 23, false, 150, 40, 0, 9);
         Midfielder midfielder1Left = new Midfielder(Teams.FC_LEFT, 14, false, 50, 60, 80, 6);
         Midfielder midfielder2Left = new Midfielder(Teams.FC_LEFT, 17, false, 80, 80, 20, 10);
         Defender defender1Left = new Defender(Teams.FC_LEFT, 2, false, 0, 40, 90, 5);
@@ -38,12 +38,12 @@ public class Test {
         teamFCLEFT.add(midfielder1Left);
         teamFCLEFT.add(midfielder2Left);
         teamFCLEFT.add(attacker1Left);
-        Goalkeeper goalkeeperFCLeft = new Goalkeeper(Teams.FC_LEFT, 28, 60, 65);
+        Goalkeeper goalkeeperFCLeft = new Goalkeeper(Teams.FC_LEFT, 28, 60, 25);
 
         field.giveStartingSectorsInformationLeft(teamFCLEFT, input.getSimulationProperties().get(1));
 
         ArrayList<Player> teamASRIGHT = new ArrayList<>();
-        Attacker attacker1Right = new Attacker(Teams.AS_RIGHT, 7, false, 110, 40, 0, 9);
+        Attacker attacker1Right = new Attacker(Teams.AS_RIGHT, 7, false, 150, 40, 0, 9);
         Midfielder midfielder1Right = new Midfielder(Teams.AS_RIGHT, 17, false, 50, 60, 80, 6);
         Midfielder midfielder2Right = new Midfielder(Teams.AS_RIGHT, 15, false, 80, 80, 20, 10);
         Defender defender1Right = new Defender(Teams.AS_RIGHT, 27, false, 0, 40, 90, 5);
@@ -53,7 +53,7 @@ public class Test {
         teamASRIGHT.add(midfielder1Right);
         teamASRIGHT.add(midfielder2Right);
         teamASRIGHT.add(attacker1Right);
-        Goalkeeper goalkeeperASRight = new Goalkeeper(Teams.AS_RIGHT, 28, 60, 80);
+        Goalkeeper goalkeeperASRight = new Goalkeeper(Teams.AS_RIGHT, 28, 60, 25);
 
         field.giveStartingSectorsInformationRight(teamASRIGHT, input.getSimulationProperties().get(1));
 
