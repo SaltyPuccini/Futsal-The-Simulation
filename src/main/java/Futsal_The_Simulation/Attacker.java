@@ -29,7 +29,7 @@ public class Attacker extends Player {
         return false;
     }
 
-    public void Shoot(FieldGenerator field) {
+    public void shoot(FieldGenerator field) {
         if (amIOnTheBall) {
             Random randomGenerator = new Random();
             if (checkIfImInPositionToShoot(field)){

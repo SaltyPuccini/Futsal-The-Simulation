@@ -1,8 +1,8 @@
 package Futsal_The_Simulation;
 
 public class Ball {
-    int sectorOfTheBall;
-    Teams teamOfTheBall;
+    private int sectorOfTheBall;
+    private Teams teamOfTheBall;
 
     Ball (int sectorOfTheBall, Teams teamOfTheBall){
         this.sectorOfTheBall = sectorOfTheBall;

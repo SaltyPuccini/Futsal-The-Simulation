@@ -8,7 +8,7 @@ public abstract class Player {
     protected int passingStat;
     protected int shootingStat;
     protected int defendingStat;
-    boolean amIOnTheBall;
+    protected boolean amIOnTheBall;
 
     Player(Teams myTeam, int mySector, boolean amIOnTheBall, int shootingStat, int passingStat, int defendingStat) {
         this.myTeam = myTeam;
