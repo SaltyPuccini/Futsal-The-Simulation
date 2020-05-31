@@ -19,24 +19,11 @@ public class Goalkeeper {
 
     public boolean doIHaveToSaveAndIsItSuccessful(Ball ball) {
         Random randomGenerator = new Random();
-        if (ball.getAmIshoot()==true && ball.getTeamOfTheBall() != myTeam) {
+        if (ball.getAmIshoot() && ball.getTeamOfTheBall() != myTeam) {
             int willISucceed = goalkeepingStat + randomGenerator.nextInt(100);
-            if (willISucceed > 120) {
-                return true;
-            }
+            return willISucceed < 120;
         }
         return false;
-    }
-
-    public void operateOnScoreboard(Match match) {
-        switch (myTeam) {
-            case FC_LEFT:
-                match.setGoalsRight(match.getGoalsRight() + 1);
-                break;
-            case AS_RIGHT:
-                match.setGoalsLeft(match.getGoalsLeft() + 1);
-                break;
-        }
     }
 
     public int checkingFarTeammatesPosition(FieldGenerator generator) {
@@ -55,10 +42,10 @@ public class Goalkeeper {
     }
 
 
-    public void save(Ball ball, Match match, FieldGenerator field) {
+    public void save(Ball ball, FieldGenerator field, Scoreboard scoreboard) {
         if (doIHaveToSaveAndIsItSuccessful(ball)) {
             System.out.println("Nice shot. I lost the goal for team: " + myTeam);
-            operateOnScoreboard(match);
+            scoreboard.operateOnScoreboard(myTeam);
         }
         else{
             System.out.println("Too easy to save.");

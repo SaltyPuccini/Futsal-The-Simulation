@@ -39,6 +39,51 @@ public class Movement {
         return Directions.NONE;
     }
 
+
+    public boolean checkIfPlayerRightOnTheEdge(Player player, int sector)
+    {
+        switch (player.getMyRole())
+        {
+            case ATTACKER:
+                if (sector>15)
+                    return true;
+            case DEFENDER:
+                if (sector<16)
+                    return true;
+            case MIDFIELDER:
+                if (sector<6 || sector>25)
+                    return true;
+        }
+        return false;
+    }
+
+    public boolean checkIfPlayerLeftOnTheEdge(Player player, int sector)
+    {
+        switch (player.getMyRole())
+        {
+            case DEFENDER:
+                if (sector>15)
+                    return true;
+            case ATTACKER:
+                if (sector<16)
+                    return true;
+            case MIDFIELDER:
+                if (sector<6 || sector>25)
+                    return true;
+        }
+        return false;
+    }
+
+    //get my sektor jeœli jest <, badz > zwraca true inaczej false
+    // petla ma sie robic dopoki jest true
+    public boolean didICrossTheBorder(Player player, int sector) {
+        if (player.getMyTeam() == Teams.AS_RIGHT)
+            return checkIfPlayerRightOnTheEdge(player, sector);
+        else
+            return checkIfPlayerLeftOnTheEdge(player, sector);
+    }
+
+
     public Directions directionsWhenInCorner() {
         String isWallNextToMe = sectorWeAreChecking.getIsWallNextToMe();
         switch (isWallNextToMe) {
@@ -103,9 +148,10 @@ public class Movement {
                 case LEFT:
                     player.setMySector(player.getMySector() - 5);
                     break;
+
             }
             howManyTimesIteration++;
-        } while (isThereMyTeammateWhereIWantToGo(field, player) && howManyTimesIteration < 6); //unikamy  nieskoñczonej pêtli, jak 6 razy z niej nie wyjdzie - zostaje w miejscu
+        } while (isThereMyTeammateWhereIWantToGo(field, player) && howManyTimesIteration < 6 && didICrossTheBorder(player, player.getMySector())); //unikamy  nieskoñczonej pêtli, jak 6 razy z niej nie wyjdzie - zostaje w miejscu
         if (howManyTimesIteration >= 6) {
             player.setMySector(current);
             System.out.print("Since I'm surrounded with my teammates, I didn't move at all.");

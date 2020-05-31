@@ -1,19 +1,41 @@
 package Futsal_The_Simulation;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class TeamCreator {
 
 
-   public void assignStatsToAttacker (Attacker attacker, UserInputReader input)
-   {
-      attacker.setStats(input.getAttackerStats().get(0), input.getAttackerStats().get(1));
-   }
+    public ArrayList<Player> createATeam(UserInputReader input, Teams team, Scanner scan) {
+        ArrayList<Player> listOfPlayers = new ArrayList<>();
+        for (int k = 0; k < input.getNumberOfDefenders(); k++) {
+            Defender defender = new Defender(team, 0, false, 0, 0, 0, 0, Role.DEFENDER);
+            input.askUserForDefenderSpecifications(scan);
+            defender.setStats(input.getDefenderStats().get(0), input.getDefenderStats().get(1), input.getDefenderStats().get(2));
+            listOfPlayers.add(defender);
+        }
+        for (int k = 0; k < input.getNumberOfMidfielders(); k++) {
+            Midfielder midfielder = new Midfielder(team, 0, false, 0, 0, 0, 0, Role.MIDFIELDER);
+            midfielder.setStats(input.getAttackerStats().get(0), input.getAttackerStats().get(1), input.getAttackerStats().get(2), input.getMidfielderStats().get(3));
+            listOfPlayers.add(midfielder);
+        }
+        for (int k = 0; k < input.getNumberOfAttackers(); k++) {
+            Attacker attacker = new Attacker(team, 0, false, 0, 0, 0, 0, Role.ATTACKER);
+            attacker.setStats(input.getAttackerStats().get(0), input.getAttackerStats().get(1), input.getAttackerStats().get(2));
+            listOfPlayers.add(attacker);
+        }
+        return listOfPlayers;
+    }
+    //porozbijaæ na mniejsze metody, zrobiæ ustawiacz sektorów, dodaæ zapis do pliku.
 
-   public void assignStatsToMidfielder (Midfielder midfielder, UserInputReader input)
-   {
-      midfielder.setStats(input.getMidfielderStats().get(0), input.getMidfielderStats().get(1), input.getMidfielderStats().get(2));
-   }
 
-   public void assignStatsToDefender (Defender defender, UserInputReader input)
-   {
-      defender.setStats(input.getDefenderStats().get(0), input.getDefenderStats().get(1));
-   }
+    public Goalkeeper createAGoalkeeperLeft(UserInputReader input, Scanner scan) {
+        input.askUserForGoalkeeperSpecifications(scan);
+        return new Goalkeeper(Teams.FC_LEFT, 3, input.getGoalkeeperStats().get(0), input.getGoalkeeperStats().get(1));
+    }
+
+    public Goalkeeper createAGoalkeeperRight(UserInputReader input, Scanner scan) {
+        input.askUserForGoalkeeperSpecifications(scan);
+        return new Goalkeeper(Teams.AS_RIGHT, 28, input.getGoalkeeperStats().get(0), input.getGoalkeeperStats().get(1));
+    }
 }
