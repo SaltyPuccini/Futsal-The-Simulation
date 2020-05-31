@@ -85,29 +85,34 @@ public class OtherPlayersOnThePitch {
     }
 
 
+    public void checkerFar(FieldGenerator generator, ArrayList<Integer> arrayOfFriendlyPosition, int iterator ){
+        Sector sectorWeAreChecking = generator.getAllSectors().get(iterator);
+        switch (myTeam) {
+            case FC_LEFT:
+                if (sectorWeAreChecking.getIsPlayerLeftHere()) {
+                    if (sectorWeAreChecking.getId() != mySector) {
+                        arrayOfFriendlyPosition.add(iterator);
+                    }
+                }
+                break;
+            case AS_RIGHT:
+                if (sectorWeAreChecking.getIsPlayerRightHere()) {
+                    if (sectorWeAreChecking.getId() != mySector)
+                        arrayOfFriendlyPosition.add(iterator);
+                }
+                break;
+        }
+    }
+
+
+
     public int checkingFarTeammatesPosition(FieldGenerator generator, Player player) {
         onWhomAmIOperating(player);
         ArrayList<Integer> arrayOfFriendlyPosition = new ArrayList<>();
         for (int i = 0; i < generator.getAllSectors().size(); i++) {
-            Sector sectorWeAreChecking = generator.getAllSectors().get(i);
-            switch (myTeam) {
-                case FC_LEFT:
-                    if (sectorWeAreChecking.getIsPlayerLeftHere()) {
-                        if (sectorWeAreChecking.getId() != mySector) {
-                            arrayOfFriendlyPosition.add(i);
-                        }
-                    }
-                    break;
-                case AS_RIGHT:
-                    if (sectorWeAreChecking.getIsPlayerRightHere()) {
-                        if (sectorWeAreChecking.getId() != mySector)
-                            arrayOfFriendlyPosition.add(i);
-                    }
-                    break;
-            }
+           checkerFar(generator, arrayOfFriendlyPosition, i);
         }
         if (arrayOfFriendlyPosition.size() == 0) {
-            System.out.println("There's noone to pass on the whole field!!! :<");
             return 0;
         }
         return drawSectorAndPassItForward(arrayOfFriendlyPosition);
