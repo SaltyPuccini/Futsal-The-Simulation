@@ -3,15 +3,16 @@ package Futsal_The_Simulation;
 import java.util.Random;
 
 public abstract class Player {
-    private Teams myTeam;
+    protected Teams myTeam;
+    protected Role myRole;
     private int mySector;
     protected int passingStat;
     protected int shootingStat;
     protected int defendingStat;
-    boolean amIOnTheBall;
-    private int myNumber;
+    private boolean amIOnTheBall;
+    protected int myNumber;
 
-    Player(Teams myTeam, int mySector, boolean amIOnTheBall, int shootingStat, int passingStat, int defendingStat, int myNumber) {
+    Player(Teams myTeam, int mySector, boolean amIOnTheBall, int shootingStat, int passingStat, int defendingStat, int myNumber, Role myRole) {
         this.myTeam = myTeam;
         this.mySector = mySector;
         this.amIOnTheBall = amIOnTheBall;
@@ -19,6 +20,11 @@ public abstract class Player {
         this.passingStat = passingStat;
         this.shootingStat = shootingStat;
         this.myNumber = myNumber;
+        this.myRole = myRole;
+    }
+
+    public Role getMyRole() {
+        return myRole;
     }
 
     public Teams getMyTeam() {
