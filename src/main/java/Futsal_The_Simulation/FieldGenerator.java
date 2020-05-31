@@ -59,23 +59,27 @@ public class FieldGenerator {
         this.allSectors = allSectors;
     }
 
-    public void giveStartingSectorsInformationAboutPlayersPosition(ArrayList<Player> player, int sizeOfTeam) {
+
+    public void giveStartingSectorsInformationLeft(ArrayList<Player> player, int sizeOfTeam) {
         for (int i = 0; i < sizeOfTeam; i++) {
             for (int k = 0; k < 30; k++) {
                 if (player.get(i).getMySector() == getAllSectors().get(k).getId()) {
-                    if (player.get(i).getMyTeam() == Teams.FC_LEFT) {
                         getAllSectors().get(k).setPlayerLeftHere(true);
                         System.out.println("I set field number " + (k + 1) + "  with player left");
-                    }
-                    if (player.get(i).getMyTeam() == Teams.AS_RIGHT) {
-                        getAllSectors().get(k).setPlayerRightHere(true);
-                        System.out.println("I set field number " + (k + 1) + "  with player right");
-                    }
                 }
             }
         }
     }
-
+    public void giveStartingSectorsInformationRight(ArrayList<Player> player, int sizeOfTeam) {
+        for (int i = 0; i < sizeOfTeam; i++) {
+            for (int k = 0; k < 30; k++) {
+                if (player.get(i).getMySector() == getAllSectors().get(k).getId()) {
+                    getAllSectors().get(k).setPlayerRightHere(true);
+                    System.out.println("I set field number " + (k + 1) + "  with player right");
+                }
+            }
+        }
+    }
 
 }
 /* zaczynaj¹c symulacjê:
