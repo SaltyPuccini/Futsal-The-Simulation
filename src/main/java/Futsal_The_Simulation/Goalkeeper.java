@@ -21,8 +21,8 @@ public class Goalkeeper {
         Random randomGenerator = new Random();
         if (ball.getAmIshoot() && ball.getTeamOfTheBall() != myTeam) {
             intervention++;
-            int willISucceed = goalkeepingStat + randomGenerator.nextInt(100);
-            if (willISucceed < 120) {
+            int willISucceed = randomGenerator.nextInt(100) + 1;
+            if (willISucceed > goalkeepingStat) {
                 return true;
             } else {
                 successfulIntervention++;
