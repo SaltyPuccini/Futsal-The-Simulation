@@ -74,9 +74,6 @@ public class OtherPlayersOnThePitch {
 
 
 
-
-
-
     public int drawSectorAndPassItForward(ArrayList<Integer> arrayOfFriendlyPosition) {
         Random randomGenerator = new Random();
         int randomNumber = randomGenerator.nextInt(arrayOfFriendlyPosition.size());

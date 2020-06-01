@@ -12,6 +12,7 @@ public class UserInputReader {
     private ArrayList<Integer> defenderStats = new ArrayList<>();
     private ArrayList<Integer> goalkeeperStats = new ArrayList<>();
 
+
     public ArrayList<Integer> operateOnArrayListForSimulationProperties(int timeEstimated, int teamsSize) {
         simulationProperties.add(timeEstimated);
         simulationProperties.add(teamsSize);
@@ -44,10 +45,11 @@ public class UserInputReader {
     }
 
     public ArrayList<Integer> askUserForAttackerSpecifications(Scanner scanFromUser) {
-        System.out.println("Type in attacker's shooting stat: ");
-        int shootingStat = scanFromUser.nextInt();
-        System.out.println("Type in attacker's passing stat:  ");
-        int passingStat = scanFromUser.nextInt();
+        int shootingStat, passingStat;
+        do {System.out.println("Type in attacker's shooting stat: ");
+            shootingStat = scanFromUser.nextInt();
+            System.out.println("Type in attacker's passing stat:  ");
+            passingStat = scanFromUser.nextInt(); }while(shootingStat<1 || shootingStat>100 || passingStat<=0 || passingStat>100);
         System.out.println("Type in attacker's number on the shirt:  ");
         int myNumber = scanFromUser.nextInt();
         return operateOnArrayListForAttackerStats(shootingStat, passingStat, myNumber);
@@ -66,16 +68,15 @@ public class UserInputReader {
     }
 
     public ArrayList<Integer> askUserForMidfielderSpecifications(Scanner scanFromUser) {
-        int shootingStat, passingStat, defendingStat, myNumber;
-        do{System.out.println("Podaj statystyke strzelania pomocnika: ");
-        shootingStat = scanFromUser.nextInt();
-        System.out.println("Podaj statystyke podania pomocnika: ");
-        passingStat = scanFromUser.nextInt();
-        System.out.println("Podaj statystyke obrony pomocnika: ");
-        defendingStat = scanFromUser.nextInt();
-        }while(shootingStat<1||shootingStat>100 || passingStat<1||passingStat>100 || defendingStat<1 || defendingStat>100);
+        int shootingStat, passingStat, defendingStat;
+        do {System.out.println("Type in midfielder's shooting stat: ");
+            shootingStat = scanFromUser.nextInt();
+            System.out.println("Type in midfielder's passing stat: ");
+            passingStat = scanFromUser.nextInt();
+            System.out.println("Type in midfielder's defending stat: ");
+            defendingStat = scanFromUser.nextInt(); }while(shootingStat<1 || shootingStat>100 || passingStat<1 || passingStat>100 || defendingStat<1 || defendingStat>100);
         System.out.println("Type in attacker's number on the shirt:  ");
-        myNumber = scanFromUser.nextInt();
+        int myNumber = scanFromUser.nextInt();
         return operateOnArrayListForMidfielderStats(shootingStat, passingStat, defendingStat, myNumber);
     }
 
@@ -91,10 +92,11 @@ public class UserInputReader {
     }
 
     public ArrayList<Integer> askUserForDefenderSpecifications(Scanner scanFromUser) {
-        System.out.println("Podaj statystyke podania obroncy: ");
-        int passingStat = scanFromUser.nextInt();
-        System.out.println("Podaj statystyke obrony obroncy: ");
-        int defendingStat = scanFromUser.nextInt();
+        int passingStat, defendingStat;
+        do {System.out.println("Type in defender's passing stat: ");
+            passingStat = scanFromUser.nextInt();
+            System.out.println("Type in defender's defending stat: ");
+            defendingStat = scanFromUser.nextInt(); }while(passingStat<1 || passingStat>100 || defendingStat<1 || defendingStat>100);
         System.out.println("Type in attacker's number on the shirt:  ");
         int myNumber = scanFromUser.nextInt();
         return operateOnArrayListForDefenderStats(passingStat, defendingStat, myNumber);
@@ -146,10 +148,11 @@ public class UserInputReader {
     }
 
     public ArrayList<Integer> askUserForGoalkeeperSpecifications(Scanner scanFromUser) {
-        System.out.println("Podaj statystyke podania bramkarza: ");
-        int passingStat = scanFromUser.nextInt();
-        System.out.println("Podaj statystyke bronienia bramkarza: ");
-        int goalkeepingStat = scanFromUser.nextInt();
+        int passingStat, goalkeepingStat;
+        do {System.out.println("Type in goalkeeper's passing stat: ");
+            passingStat = scanFromUser.nextInt();
+            System.out.println("Type in goalkeeper's goalkeeping stat: ");
+            goalkeepingStat = scanFromUser.nextInt(); }while(passingStat<1 || passingStat>100 || goalkeepingStat<1 || goalkeepingStat>100);
         return operateOnArrayListForGoalkeeperStats(passingStat, goalkeepingStat);
     }
 

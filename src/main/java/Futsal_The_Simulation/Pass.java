@@ -4,7 +4,7 @@ import org.json.JSONException;
 
 public class Pass {
 
-    OtherPlayersOnThePitch otherPlayers = new OtherPlayersOnThePitch();
+    private OtherPlayersOnThePitch otherPlayers = new OtherPlayersOnThePitch();
 
     public void decideWhetherPassFarOrNear(FieldGenerator field, Player player, Ball ball) throws JSONException {
         int positionOfSomeoneNearby = otherPlayers.checkingForNearbyTeammates(field, player);

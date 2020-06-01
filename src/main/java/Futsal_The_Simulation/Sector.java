@@ -41,7 +41,6 @@ public class Sector {
         return id;
     }
 
-
     public void setPlayerLeftHere(boolean playerLeftHere) {
         isPlayerLeftHere = playerLeftHere;
     }
