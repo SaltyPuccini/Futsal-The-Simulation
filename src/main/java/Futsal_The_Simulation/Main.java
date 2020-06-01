@@ -15,7 +15,6 @@ public class Main {
         Pass pass = new Pass();
         Movement movement = new Movement();
         FieldGenerator field = new FieldGenerator();
-        OtherPlayersOnThePitch search = new OtherPlayersOnThePitch();
         Match match = new Match();
         TeamCreator create = new TeamCreator();
         ArrayList<Player> teamFCLeft;
@@ -32,6 +31,9 @@ public class Main {
         input.rolesInTeam(Teams.AS_RIGHT, scan);
         teamASRight = create.createATeam(input, Teams.AS_RIGHT, scan);
         Goalkeeper goalkeeperASRight=create.createAGoalkeeperRight(input, scan);
+
+        create.giveSectorsToPlayers(input, teamFCLeft);
+        create.giveSectorsToPlayers(input, teamASRight);
 
         field.giveStartingSectorsInformationLeft(teamFCLeft, input.getSimulationProperties().get(1));
         field.giveStartingSectorsInformationRight(teamASRight, input.getSimulationProperties().get(1));

@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class TeamCreator {
 
+    int iterator =0;
 
     public ArrayList<Player> createATeam(UserInputReader input, Teams team, Scanner scan) {
         ArrayList<Player> listOfPlayers = new ArrayList<>();
@@ -16,7 +17,7 @@ public class TeamCreator {
         }
         for (int k = 0; k < input.getNumberOfMidfielders(); k++) {
             Midfielder midfielder = new Midfielder(team, 0, false, 0, 0, 0, 0, Role.MIDFIELDER);
-            midfielder.setStats(input.getAttackerStats().get(0), input.getAttackerStats().get(1), input.getAttackerStats().get(2), input.getMidfielderStats().get(3));
+            midfielder.setStats(input.getMidfielderStats().get(0), input.getMidfielderStats().get(1), input.getMidfielderStats().get(2), input.getMidfielderStats().get(3));
             listOfPlayers.add(midfielder);
         }
         for (int k = 0; k < input.getNumberOfAttackers(); k++) {
@@ -38,4 +39,54 @@ public class TeamCreator {
         input.askUserForGoalkeeperSpecifications(scan);
         return new Goalkeeper(Teams.AS_RIGHT, 28, input.getGoalkeeperStats().get(0), input.getGoalkeeperStats().get(1));
     }
+
+    public void giveSectorsToDefenders(UserInputReader input, ArrayList<Player> listOfPLayers) {
+        for (int i = 0; i < input.getNumberOfDefenders(); i++) {
+            switch (listOfPLayers.get(i).getMyTeam()){
+                case FC_LEFT:
+                    listOfPLayers.get(i).setMySector(2+2*i);
+                    break;
+                case AS_RIGHT:
+                    listOfPLayers.get(i).setMySector(29-2*i);
+                    break;
+            }
+             iterator = i + 1;
+        }
+    }
+
+    public void giveSectorsToMidfielders(UserInputReader input, ArrayList<Player> listOfPLayers) {
+        for (int i = 0; i < input.getNumberOfMidfielders(); i++) {
+            switch (listOfPLayers.get(iterator).getMyTeam()){
+                case FC_LEFT:
+                    listOfPLayers.get(iterator).setMySector(13+2*i);
+                    break;
+                case AS_RIGHT:
+                    listOfPLayers.get(iterator).setMySector(18-2*i);
+                    break;
+            }
+            iterator = i + 1;
+        }
+    }
+
+    public void giveSectorsToAttackers(UserInputReader input, ArrayList<Player> listOfPLayers) {
+        for (int i = 0; i < input.getNumberOfAttackers(); i++) {
+            switch (listOfPLayers.get(iterator).getMyTeam()){
+                case FC_LEFT:
+                    listOfPLayers.get(iterator).setMySector(18+(2*i));
+                    break;
+                case AS_RIGHT:
+                    listOfPLayers.get(iterator).setMySector(13-2*i);
+                    break;
+            }
+            iterator = i + 1;
+        }
+    }
+
+    public void giveSectorsToPlayers(UserInputReader input, ArrayList<Player> listOfPlayers){
+        giveSectorsToDefenders(input, listOfPlayers);
+        giveSectorsToMidfielders (input, listOfPlayers);
+        giveSectorsToAttackers (input, listOfPlayers);
+
+    }
+
 }

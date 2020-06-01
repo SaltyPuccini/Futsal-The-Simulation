@@ -1,0 +1,56 @@
+[{
+  "numberOfDefenders": 1,
+  "placement": [2,6,7],
+  "capacity": 3,
+  "isPlayerRightHere": false,
+  "isPlayerLeftHere": false,
+  "isWallNextToMe": "left_up_corner"
+},
+  {
+    "id": 2,
+    "connectedSectors": [1,3,6,7,8],
+    "capacity": 3,
+    "isPlayerRightHere": false,
+    "isPlayerLeftHere": false,
+    "isWallNextToMe": "left"
+  },
+  {
+    "id": 3,
+    "connectedSectors": [2,4,7,8,9],
+    "capacity": 2,
+    "isPlayerRightHere": false,
+    "isPlayerLeftHere": false,
+    "isWallNextToMe": "left"
+  },
+  {
+    "id": 4,
+    "connectedSectors": [3,5,8,9,10],
+    "capacity": 3,
+    "isPlayerRightHere": false,
+    "isPlayerLeftHere": false,
+    "isWallNextToMe": "left"
+  },
+  {
+    "id": 5,
+    "connectedSectors": [4,9,10],
+    "capacity": 3,
+    "isPlayerRightHere": false,
+    "isPlayerLeftHere": false,
+    "isWallNextToMe": "left_down_corner"
+  },
+  {
+    "id": 6,
+    "connectedSectors": [1,2,7,11,12],
+    "capacity": 3,
+    "isPlayerRightHere": false,
+    "isPlayerLeftHere": false,
+    "isWallNextToMe": "up"
+  },
+  {
+    "id": 7,
+    "connectedSectors": [1,2,3,6,8,11,12,13],
+    "capacity": 3,
+    "isPlayerRightHere": false,
+    "isPlayerLeftHere": false,
+    "isWallNextToMe": "none"
+  }]
