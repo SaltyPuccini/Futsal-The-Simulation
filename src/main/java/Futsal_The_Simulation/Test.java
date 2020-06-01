@@ -2,8 +2,8 @@ package Futsal_The_Simulation;
 
 public class Test {
 
-    public static void main(String[] args) {
-
+//    public static void main(String[] args) throws IOException, JSONException {
+//
 //        UserInputReader input = new UserInputReader();
 //        Scanner scan = new Scanner(System.in);
 //        Ball ball = new Ball(2, Teams.FC_LEFT, false);
@@ -12,13 +12,14 @@ public class Test {
 //        FieldGenerator field = new FieldGenerator();
 //        OtherPlayersOnThePitch search = new OtherPlayersOnThePitch();
 //        Match match = new Match();
+//        Scoreboard scoreboard= new Scoreboard(0, 0);
 //        field.loadSectors();
 //        input.askQuestionsAboutSimulationProperties(scan);
-//        /*
-//        input.askUserForAttackerSpecifications(scan);
-//        TeamCreator team1 = new TeamCreator();
-//        team1.assignStatsToAttacker(attacker, input);
-//        */
+//
+////        input.askUserForAttackerSpecifications(scan);
+////        TeamCreator team1 = new TeamCreator();
+////        team1.assignStatsToAttacker(attacker, input);
+//
 //
 //
 //        ArrayList<Player> teamFCLEFT = new ArrayList<>();
@@ -56,7 +57,7 @@ public class Test {
 //                System.out.println("It is time for player number " + teamFCLEFT.get(i).getMyNumber() + " from team " + teamFCLEFT.get(i).getMyTeam() + " who is in sector number " + teamFCLEFT.get(i).getMySector());
 //                teamFCLEFT.get(i).decideAmIOnTheBall(ball); // other decideAmIOnTheBall operations are taking place in classes not in main loop.
 //                if (teamFCLEFT.get(i).preparingToShoot(field, ball, goalkeeperASRight)) {
-//                    goalkeeperASRight.save(ball, match, field);
+//                    goalkeeperASRight.save(ball, field, scoreboard);
 //                    break;
 //                }
 //                teamFCLEFT.get(i).interception(field, ball);
@@ -70,7 +71,7 @@ public class Test {
 //                        + " who is in sector number " + teamASRIGHT.get(k).getMySector());
 //                teamASRIGHT.get(k).decideAmIOnTheBall(ball);
 //                if (teamASRIGHT.get(k).preparingToShoot(field, ball, goalkeeperFCLeft)) {
-//                    goalkeeperFCLeft.save(ball, match, field);
+//                    goalkeeperFCLeft.save(ball, field, scoreboard);
 //                    break;
 //                }
 //                teamFCLEFT.get(k).interception(field, ball);
@@ -80,9 +81,9 @@ public class Test {
 //                pass.passTheBallIfPossible(field, teamASRIGHT.get(k), ball);
 //            }
 //        }
-//        System.out.println("Final results: FC_Left " + match.getGoalsLeft() + " - " + match.getGoalsRight() + " AS_Right");
-
-
-    }
+//        System.out.println("Final results: FC_Left "+ scoreboard.getGoalsLeft() + " - " + scoreboard.getGoalsRight() +" AS_Right");
+//
+//
+//    }
 }
 

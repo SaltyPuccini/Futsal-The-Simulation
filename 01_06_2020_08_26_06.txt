@@ -1,0 +1,19 @@
+Final results: FC_Left 24 - 0 AS_Right
+Match lasted 100 units of time.
+Team size: 7
+
+Final statistics:
+Team FCLeft shots total: 32
+Team FCLeft shots on target: 31
+Team FCLeft interceptions total: 42
+Team FCLeft interceptions successful: 23
+Team FCLeft passes: 32
+Team FCLeft unsuccessful passes: 31
+
+Team ASRight shots total: 15
+Team ASRight shots on target: 2
+Team ASRight interceptions total: 13
+Team ASRight interceptions successful: 7
+Team ASRight passes: 15
+Team ASRight unsuccessful passes: 2
+

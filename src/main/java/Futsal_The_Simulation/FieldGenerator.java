@@ -11,10 +11,10 @@ import java.util.ArrayList;
 
 public class FieldGenerator {
 
-    private ArrayList<Sector> allSectors = new ArrayList<>();
+    private final ArrayList<Sector> allSectors = new ArrayList<>();
 
-    public void addLocalVariablesToGlobalField(int id, int capacity, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere, String isWallNextToMe) {
-        Sector sector = new Sector(id, capacity, connectedSectors, isPlayerRightHere, isPlayerLeftHere, isWallNextToMe);
+    public void addLocalVariablesToGlobalField(int id, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere, String isWallNextToMe) {
+        Sector sector = new Sector(id, connectedSectors, isPlayerRightHere, isPlayerLeftHere, isWallNextToMe);
         allSectors.add(sector);
     }
 
@@ -29,7 +29,7 @@ public class FieldGenerator {
             boolean isPlayerLeftHere = jsonObject.getBoolean("isPlayerLeftHere");
             JSONArray connectedSectors = jsonObject.getJSONArray("connectedSectors");
             String isWallNextToMe = jsonObject.getString("isWallNextToMe");
-            addLocalVariablesToGlobalField(id, capacity, connectedSectors, isPlayerRightHere, isPlayerLeftHere, isWallNextToMe);
+            addLocalVariablesToGlobalField(id, connectedSectors, isPlayerRightHere, isPlayerLeftHere, isWallNextToMe);
         }
     }
 
@@ -55,17 +55,14 @@ public class FieldGenerator {
         }
     }
 
-    public void setAllSectors(ArrayList<Sector> allSectors) {
-        this.allSectors = allSectors;
-    }
-
 
     public void giveStartingSectorsInformationLeft(ArrayList<Player> player, int sizeOfTeam) {
         for (int i = 0; i < sizeOfTeam; i++) {
             for (int k = 0; k < 30; k++) {
                 if (player.get(i).getMySector() == getAllSectors().get(k).getId()) {
                         getAllSectors().get(k).setPlayerLeftHere(true);
-                        System.out.println("I set field number " + (k + 1) + "  with player left");
+                        //System.out.println("I set field number " + (k + 1) + "  with player left");
+                    System.out.println("FCLeft's player number " +player.get(i).getMyNumber() + " sets up in sector number " + (k + 1));
                 }
             }
         }
@@ -75,7 +72,7 @@ public class FieldGenerator {
             for (int k = 0; k < 30; k++) {
                 if (player.get(i).getMySector() == getAllSectors().get(k).getId()) {
                     getAllSectors().get(k).setPlayerRightHere(true);
-                    System.out.println("I set field number " + (k + 1) + "  with player right");
+                    System.out.println("ASRight's player number " +player.get(i).getMyNumber() + " sets up in sector number " + (k + 1));
                 }
             }
         }

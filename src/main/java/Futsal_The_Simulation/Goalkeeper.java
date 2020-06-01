@@ -5,23 +5,28 @@ import java.util.Random;
 
 public class Goalkeeper {
 
-    private Teams myTeam;
-    private int passingStat;
-    private int goalkeepingStat;
-    private int mySector;
+    private final Teams myTeam;
+    private final int goalkeepingStat;
+    private final int mySector;
+    private int intervention = 0;
+    private int successfulIntervention = 0;
 
-    public Goalkeeper(Teams myTeam, int mySector, int passingStat, int goalkeepingStat) {
+    public Goalkeeper(Teams myTeam, int mySector, int goalkeepingStat) {
         this.myTeam = myTeam;
         this.mySector = mySector; //goalkeepers are invisible for other players. Their position is not marked on the field.
-        this.passingStat = passingStat;
         this.goalkeepingStat = goalkeepingStat;
     }
 
     public boolean doIHaveToSaveAndIsItSuccessful(Ball ball) {
         Random randomGenerator = new Random();
         if (ball.getAmIshoot() && ball.getTeamOfTheBall() != myTeam) {
+            intervention++;
             int willISucceed = goalkeepingStat + randomGenerator.nextInt(100);
-            return willISucceed < 120;
+            if (willISucceed < 120) {
+                return true;
+            } else {
+                successfulIntervention++;
+            }
         }
         return false;
     }
@@ -44,11 +49,10 @@ public class Goalkeeper {
 
     public void save(Ball ball, FieldGenerator field, Scoreboard scoreboard) {
         if (doIHaveToSaveAndIsItSuccessful(ball)) {
-            System.out.println("Nice shot. I lost the goal for team: " + myTeam);
+            System.out.println(myTeam + "'s goalkeeper conceded a goal.");
             scoreboard.operateOnScoreboard(myTeam);
-        }
-        else{
-            System.out.println("Too easy to save.");
+        } else {
+            if(ball.getAmIshoot())System.out.println(myTeam + "'s goalkeeper saved incoming shot.");
         }
         operateOnTheBall(ball, field);
     }
@@ -56,11 +60,11 @@ public class Goalkeeper {
 
     public int choseNearestSectorToPass(ArrayList<Integer> arrayOfFriendlyPosition) {
         int sectorNumber;
-        if(myTeam ==Teams.AS_RIGHT)
-            sectorNumber=arrayOfFriendlyPosition.get(arrayOfFriendlyPosition.size() - 1);
+        if (myTeam == Teams.AS_RIGHT)
+            sectorNumber = arrayOfFriendlyPosition.get(arrayOfFriendlyPosition.size() - 1);
         else
-            sectorNumber=arrayOfFriendlyPosition.get(0);
-        System.out.println("I start from my penalty area. I shall pass to my teammate in sector " + (sectorNumber+1));
+            sectorNumber = arrayOfFriendlyPosition.get(0);
+        System.out.println(myTeam + "'s goalkeeper passes the ball to " + (sectorNumber + 1));
         return sectorNumber + 1;
     }
 
@@ -84,5 +88,15 @@ public class Goalkeeper {
         }
     }
 
+    public int getIntervention() {
+        return intervention;
+    }
 
+    public int getSuccessfulIntervention() {
+        return successfulIntervention;
+    }
+
+    public Teams getMyTeam() {
+        return myTeam;
+    }
 }

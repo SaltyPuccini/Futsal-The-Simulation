@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Movement {
 
-    private Random randomGenerator = new Random();
+    private final Random randomGenerator = new Random();
     private Sector sectorWeAreChecking;
 
     public Directions directionsBasedOnRandomNumber(int randomNumber) {
@@ -40,35 +40,31 @@ public class Movement {
     }
 
 
-    public boolean checkIfPlayerRightOnTheEdge(Player player, int sector)
-    {
-        switch (player.getMyRole())
-        {
+    public boolean checkIfPlayerRightOnTheEdge(Player player, int sector) {
+        switch (player.getMyRole()) {
             case ATTACKER:
-                if (sector>15)
+                if (sector > 15)
                     return true;
             case DEFENDER:
-                if (sector<16)
+                if (sector < 16)
                     return true;
             case MIDFIELDER:
-                if (sector<6 || sector>25)
+                if (sector < 6 || sector > 25)
                     return true;
         }
         return false;
     }
 
-    public boolean checkIfPlayerLeftOnTheEdge(Player player, int sector)
-    {
-        switch (player.getMyRole())
-        {
+    public boolean checkIfPlayerLeftOnTheEdge(Player player, int sector) {
+        switch (player.getMyRole()) {
             case DEFENDER:
-                if (sector>15)
+                if (sector > 15)
                     return true;
             case ATTACKER:
-                if (sector<16)
+                if (sector < 16)
                     return true;
             case MIDFIELDER:
-                if (sector<6 || sector>25)
+                if (sector < 6 || sector > 25)
                     return true;
         }
         return false;
@@ -118,7 +114,7 @@ public class Movement {
     public void moveBallWithPlayer(Player player, Ball ball) {
         if (player.getAmIOnTheBall()) {
             ball.setSectorOfTheBall(player.getMySector());
-            System.out.println("I take the ball with me.");
+            System.out.println("He takes the ball with him.");
         }
     }
 
@@ -152,13 +148,17 @@ public class Movement {
             }
             howManyTimesIteration++;
         } while (isThereMyTeammateWhereIWantToGo(field, player) && howManyTimesIteration < 6 && didICrossTheBorder(player, player.getMySector())); //unikamy  nieskoñczonej pêtli, jak 6 razy z niej nie wyjdzie - zostaje w miejscu
+        boolean flagToShowMessage = false;
         if (howManyTimesIteration >= 6) {
             player.setMySector(current);
-            System.out.print("Since I'm surrounded with my teammates, I didn't move at all.");
+            System.out.println("Player number " + player.getMyNumber() + " from " + player.getMyTeam() + " decides to stay in sector " + player.getMySector() + ", since he's surrounded with teammates.");
+            flagToShowMessage = true;
         }
         field.giveInformationPlayerAppearing(player);
-        System.out.println("I moved to the connected sector number " + player.getMySector() + ".");
+        if (!flagToShowMessage)
+            System.out.println("Player number " + player.getMyNumber() + " from " + player.getMyTeam() + " moves to sector " + player.getMySector() + ".");
         moveBallWithPlayer(player, ball);
 
     }
+
 }

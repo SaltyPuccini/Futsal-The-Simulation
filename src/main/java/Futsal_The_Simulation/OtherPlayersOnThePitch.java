@@ -11,7 +11,6 @@ public class OtherPlayersOnThePitch {
     private int mySector;
     private boolean isPlayerRightHere;
     private boolean isPlayerLeftHere;
-    private Sector playersSectorThatWeCheck;
     private Sector neighbourSectorToCheck;
     private JSONArray connectedSectors;
     private int[] arrayOfConnectedSectors;
@@ -25,7 +24,7 @@ public class OtherPlayersOnThePitch {
 
     public void gettingInformationAboutConnectedSectors(FieldGenerator generator, Player player) {
         onWhomAmIOperating(player);
-        playersSectorThatWeCheck = generator.getAllSectors().get(mySector - 1);
+        Sector playersSectorThatWeCheck = generator.getAllSectors().get(mySector - 1);
         connectedSectors = playersSectorThatWeCheck.getConnectedSectors();
     }
 
@@ -53,7 +52,7 @@ public class OtherPlayersOnThePitch {
                 for (int i = connectedSectors.length() - 1; i >= 0; i--) {
                     searchTeamLeft(generator, i);
                     if (isPlayerLeftHere) {
-                        System.out.println("There's someone in sector " + arrayOfConnectedSectors[i]);
+//                        System.out.println("There's someone in sector " + arrayOfConnectedSectors[i]);
                         return arrayOfConnectedSectors[i];
                     }
                 }
@@ -62,13 +61,13 @@ public class OtherPlayersOnThePitch {
                 for (int i = 0; i < connectedSectors.length(); i++) {
                     searchTeamRight(generator, i);
                     if (isPlayerRightHere) {
-                        System.out.println("There's someone in sector " + arrayOfConnectedSectors[i]);
+//                        System.out.println("There's someone in sector " + arrayOfConnectedSectors[i]);
                         return arrayOfConnectedSectors[i];
                     }
                 }
                 break;
         }
-        System.out.println("There's noone nearby");
+//        System.out.println("There's noone nearby");
         return 0;
     }
 
@@ -77,7 +76,7 @@ public class OtherPlayersOnThePitch {
     public int drawSectorAndPassItForward(ArrayList<Integer> arrayOfFriendlyPosition) {
         Random randomGenerator = new Random();
         int randomNumber = randomGenerator.nextInt(arrayOfFriendlyPosition.size());
-        System.out.println("Hell yeah there's my teammate in sector number " + (arrayOfFriendlyPosition.get(randomNumber) + 1));
+//        System.out.println("Hell yeah there's my teammate in sector number " + (arrayOfFriendlyPosition.get(randomNumber) + 1));
         return arrayOfFriendlyPosition.get(randomNumber) + 1;
     }
 
@@ -114,5 +113,14 @@ public class OtherPlayersOnThePitch {
         }
         return drawSectorAndPassItForward(arrayOfFriendlyPosition);
     }
+
+    public int positionOfRandomEnemy(ArrayList<Player> listOfEnemies, UserInputReader input) {
+        Random randomGenerator = new Random();
+        int whereToPass;
+        int randomNumber = +randomGenerator.nextInt(input.getSimulationProperties().get(1));
+        whereToPass = listOfEnemies.get(randomNumber).getMySector();
+        return whereToPass;
+    }
+
 
 }
