@@ -75,7 +75,7 @@ public class UserInputReader {
             passingStat = scanFromUser.nextInt();
             System.out.println("Type in midfielder's defending stat: ");
             defendingStat = scanFromUser.nextInt(); }while(shootingStat<1 || shootingStat>100 || passingStat<1 || passingStat>100 || defendingStat<1 || defendingStat>100);
-        System.out.println("Type in attacker's number on the shirt:  ");
+        System.out.println("Type in midfielder's number on the shirt:  ");
         int myNumber = scanFromUser.nextInt();
         return operateOnArrayListForMidfielderStats(shootingStat, passingStat, defendingStat, myNumber);
     }
@@ -97,7 +97,7 @@ public class UserInputReader {
             passingStat = scanFromUser.nextInt();
             System.out.println("Type in defender's defending stat: ");
             defendingStat = scanFromUser.nextInt(); }while(passingStat<1 || passingStat>100 || defendingStat<1 || defendingStat>100);
-        System.out.println("Type in attacker's number on the shirt:  ");
+        System.out.println("Type in defender's number on the shirt:  ");
         int myNumber = scanFromUser.nextInt();
         return operateOnArrayListForDefenderStats(passingStat, defendingStat, myNumber);
     }
