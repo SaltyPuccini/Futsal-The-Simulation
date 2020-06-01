@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class TeamCreator {
 
-    int iterator;
+    private int iterator;
     public ArrayList<Player> createATeam(UserInputReader input, Teams team, Scanner scan) {
         int looper =0;
         ArrayList<Player> listOfPlayers = new ArrayList<>();

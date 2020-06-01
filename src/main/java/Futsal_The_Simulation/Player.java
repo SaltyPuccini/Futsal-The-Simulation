@@ -142,10 +142,10 @@ public abstract class Player {
         return false; //jak zwróci true, to jest break w pêtli i zaczynamy od interwencji bramkarza.
     }
 
-    int shotOnTarget = 0;
-    int shot = 0;
-    int interceptionSuccessful = 0;
-    int interception = 0;
+    private int shotOnTarget = 0;
+    private int shot = 0;
+    private int interceptionSuccessful = 0;
+    private int interception = 0;
 
     public int getInterception() {
         return interception;

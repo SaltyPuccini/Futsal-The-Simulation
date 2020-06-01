@@ -6,11 +6,6 @@ import java.util.ArrayList;
 
 public class Match {
 
-    public Match() {
-
-    }
-
-
     public void runSimulation(UserInputReader input, Ball ball, ArrayList<Player> teamFCLeft, ArrayList<Player> teamASRight, Pass pass, Movement movement, FieldGenerator field, Goalkeeper goalkeeperASRight, Goalkeeper goalkeeperFCLeft, Scoreboard scoreboard) throws JSONException {
         for (int time = 0; time < input.getSimulationProperties().get(0) && ball.getSectorOfTheBall() != 0; time++) {
             for (int i = 0; i < input.getSimulationProperties().get(1); i++) {

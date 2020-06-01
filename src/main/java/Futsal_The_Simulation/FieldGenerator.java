@@ -55,7 +55,6 @@ public class FieldGenerator {
         }
     }
 
-
     public void giveStartingSectorsInformationLeft(ArrayList<Player> player, int sizeOfTeam) {
         for (int i = 0; i < sizeOfTeam; i++) {
             for (int k = 0; k < 30; k++) {
@@ -67,6 +66,7 @@ public class FieldGenerator {
             }
         }
     }
+
     public void giveStartingSectorsInformationRight(ArrayList<Player> player, int sizeOfTeam) {
         for (int i = 0; i < sizeOfTeam; i++) {
             for (int k = 0; k < 30; k++) {
