@@ -27,8 +27,8 @@ public class Pass {
             ball.setSectorOfTheBall(0);
         }
         Random randomGenerator = new Random();
-        int willISucceed = player.getPassingStat() + randomGenerator.nextInt(100);
-        if (willISucceed > 100) {
+        int willISucceed = randomGenerator.nextInt(100) + 1;
+        if (willISucceed < player.getPassingStat()) {
             ball.setSectorOfTheBall(chosenPosition);
             System.out.println("Player number " + player.getMyNumber() + " from " + player.getMyTeam() + " passes the ball to his teammate, who's far from him in sector " + ball.getSectorOfTheBall() + ".");
         } else {

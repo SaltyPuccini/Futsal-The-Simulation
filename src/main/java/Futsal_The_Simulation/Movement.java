@@ -75,8 +75,9 @@ public class Movement {
     public boolean didICrossTheBorder(Player player, int sector) {
         if (player.getMyTeam() == Teams.AS_RIGHT)
             return checkIfPlayerRightOnTheEdge(player, sector);
-        else
+        if (player.getMyTeam() == Teams.FC_LEFT)
             return checkIfPlayerLeftOnTheEdge(player, sector);
+        return false;
     }
 
 
@@ -121,8 +122,9 @@ public class Movement {
     public boolean isThereMyTeammateWhereIWantToGo(FieldGenerator field, Player player) {
         if (player.getMyTeam() == Teams.AS_RIGHT)
             return (field.getAllSectors().get(player.getMySector() - 1).getIsPlayerRightHere());
-        else
+        if(player.getMyTeam() == Teams.FC_LEFT)
             return (field.getAllSectors().get(player.getMySector() - 1).getIsPlayerLeftHere());
+        return false;
     }
 
     public void movingPlayerToHisFinalDestination(FieldGenerator field, Player player, Ball ball) {

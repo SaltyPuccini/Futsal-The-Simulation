@@ -60,8 +60,8 @@ public abstract class Player {
     public void decideIfInterceptionASRightSucceed(Ball ball) {
         Random randomGenerator = new Random();
         if (ball.getSectorOfTheBall() == mySector) {
-            int willISucceed = defendingStat + randomGenerator.nextInt(100);
-            if (willISucceed > 100) {
+            int willISucceed = randomGenerator.nextInt(100)+1;
+            if (willISucceed < defendingStat) {
                 interceptionSuccessful++;
                 ball.setTeamOfTheBall(Teams.AS_RIGHT);
                 System.out.println("Player number " + myNumber + " from " + myTeam + " managed to steal the ball in sector " + mySector + ".");
@@ -75,8 +75,8 @@ public abstract class Player {
     public void decideIfInterceptionFCLeftSucceed(Ball ball) {
         Random randomGenerator = new Random();
         if (ball.getSectorOfTheBall() == mySector) {
-            int willISucceed = defendingStat + randomGenerator.nextInt(100);
-            if (willISucceed > 100) {
+            int willISucceed = randomGenerator.nextInt(100)+1;
+            if (willISucceed < defendingStat) {
                 interceptionSuccessful++;
                 ball.setTeamOfTheBall(Teams.FC_LEFT);
                 System.out.println("Player number " + myNumber + " from " + myTeam + " managed to steal the ball in sector " + mySector + ".");
@@ -127,8 +127,8 @@ public abstract class Player {
             Random randomGenerator = new Random();
             if (checkIfImInPositionToShoot(field)) {
                 shot++;
-                int willISucceed = shootingStat + randomGenerator.nextInt(100);
-                if (willISucceed > 100) {
+                int willISucceed = randomGenerator.nextInt(100)+1;
+                if (willISucceed < shootingStat ) {
                     shotOnTarget++;
                     System.out.println("Player number " + myNumber + " from " + myTeam + " shoots on target.");
                     shot(ball);
