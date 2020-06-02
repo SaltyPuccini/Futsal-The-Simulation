@@ -2,12 +2,20 @@ package Futsal_The_Simulation;
 
 import java.util.Random;
 
+/**
+ * Movement is responsible for movement of players.
+ */
 public class Movement {
 
     private final Random randomGenerator = new Random();
     private Sector sectorWeAreChecking;
 
-    public Directions directionsBasedOnRandomNumber(int randomNumber) {
+    /**
+     * Depending on random number, returns direction of movement.
+     * @param randomNumber
+     * @return
+     */
+    private Directions directionsBasedOnRandomNumber(int randomNumber) {
         switch (randomNumber) {
             case 1:
                 return Directions.UP;
@@ -21,8 +29,11 @@ public class Movement {
         return Directions.UP;
     }
 
-
-    public Directions directionsICanNotGo() {
+    /**
+     * If there is a wall next to player's sector this method returns direction in which player is not allowed to move.
+     * @return
+     */
+    private Directions directionsICanNotGo() {
         String isWallNextToMe = sectorWeAreChecking.getIsWallNextToMe();
         switch (isWallNextToMe) {
             case "none":
@@ -39,8 +50,13 @@ public class Movement {
         return Directions.NONE;
     }
 
-
-    public boolean checkIfPlayerRightOnTheEdge(Player player, int sector) {
+    /**
+     * Checks if AS_Right's player is about to leave his dedicated area of the field.
+     * @param player - player who is leaving the dedicated area.
+     * @param sector - sector of player.
+     * @return true if is on border, false if isn't.
+     */
+    private boolean checkIfPlayerRightOnTheEdge(Player player, int sector) {
         switch (player.getMyRole()) {
             case ATTACKER:
                 if (sector > 15)
@@ -55,7 +71,13 @@ public class Movement {
         return false;
     }
 
-    public boolean checkIfPlayerLeftOnTheEdge(Player player, int sector) {
+    /**
+     * Checks if FC_Left's player is about to leave his dedicated area of the field.
+     * @param player - player who is leaving the dedicated area.
+     * @param sector - sector of player.
+     * @return true if is on border, false if isn't.
+     */
+    private boolean checkIfPlayerLeftOnTheEdge(Player player, int sector) {
         switch (player.getMyRole()) {
             case DEFENDER:
                 if (sector > 15)
@@ -70,9 +92,14 @@ public class Movement {
         return false;
     }
 
-    //get my sektor jeœli jest <, badz > zwraca true inaczej false
-    // petla ma sie robic dopoki jest true
-    public boolean didICrossTheBorder(Player player, int sector) {
+
+    /**
+     * Depending on the team - checks if the player is about to leave destinated area.
+     * @param player - player who we are checking.
+     * @param sector - player's sector after his move.
+     * @return true if player leaves, false if not.
+     */
+    private boolean didICrossTheBorder(Player player, int sector) {
         if (player.getMyTeam() == Teams.AS_RIGHT)
             return checkIfPlayerRightOnTheEdge(player, sector);
         if (player.getMyTeam() == Teams.FC_LEFT)
@@ -80,8 +107,11 @@ public class Movement {
         return false;
     }
 
-
-    public Directions directionsWhenInCorner() {
+    /**
+     * Tells player where to go when he's in corner.
+     * @return direction of movement.
+     */
+    private Directions directionsWhenInCorner() {
         String isWallNextToMe = sectorWeAreChecking.getIsWallNextToMe();
         switch (isWallNextToMe) {
             case "left_up_corner":
@@ -94,13 +124,17 @@ public class Movement {
         return Directions.NONE;
     }
 
-    public Directions drawingPlayerDirection() {
+    /**
+     * Chooses direction for player based on random number.
+     * @return direction where player goes.
+     */
+    private Directions drawingPlayerDirection() {
         int randomNumber = randomGenerator.nextInt(4) + 1;
         return directionsBasedOnRandomNumber(randomNumber);
     }
 
 
-    public Directions choosingFinalDestination(FieldGenerator field, Player player) {
+    private Directions choosingFinalDestination(FieldGenerator field, Player player) {
         int playerSector = player.getMySector();
         sectorWeAreChecking = field.getAllSectors().get(playerSector - 1);
         Directions direction;
@@ -112,14 +146,14 @@ public class Movement {
         return direction;
     }
 
-    public void moveBallWithPlayer(Player player, Ball ball) {
+    private void moveBallWithPlayer(Player player, Ball ball) {
         if (player.getAmIOnTheBall()) {
             ball.setSectorOfTheBall(player.getMySector());
             System.out.println("He takes the ball with him.");
         }
     }
 
-    public boolean isThereMyTeammateWhereIWantToGo(FieldGenerator field, Player player) {
+    private boolean isThereMyTeammateWhereIWantToGo(FieldGenerator field, Player player) {
         if (player.getMyTeam() == Teams.AS_RIGHT)
             return (field.getAllSectors().get(player.getMySector() - 1).getIsPlayerRightHere());
         if(player.getMyTeam() == Teams.FC_LEFT)
