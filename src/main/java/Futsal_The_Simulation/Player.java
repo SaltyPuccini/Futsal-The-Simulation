@@ -174,4 +174,8 @@ public abstract class Player {
     public int getShootingStat() {
         return shootingStat;
     }
+
+    public void setAmIOnTheBall(boolean amIOnTheBall) {
+        this.amIOnTheBall = amIOnTheBall;
+    }
 }

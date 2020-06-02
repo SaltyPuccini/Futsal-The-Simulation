@@ -38,7 +38,7 @@ public class Pass {
             unsuccessfulPass++;
             for (int i = 0; i < input.getSimulationProperties().get(1); i++) {
                 if(listOfEnemies.get(i).getMySector()==positionOfRandomEnemy)
-                        listOfEnemies.get(i).decideAmIOnTheBall(ball);
+                        listOfEnemies.get(i).setAmIOnTheBall(true);
             }
             System.out.println("Player number " + player.getMyNumber() + " from " + player.getMyTeam() + " passes really inaccurate and now the ball in sector " + ball.getSectorOfTheBall() + ".");
         }

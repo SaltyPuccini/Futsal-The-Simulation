@@ -1,0 +1,27 @@
+Final results: FC_Left 8 - 8 AS_Right
+Match lasted 200 units of time.
+Team size: 7
+
+Final statistics:
+Team FCLeft shots total: 38
+Team FCLeft shots on target: 29
+Team FCLeft interceptions total: 44
+Team FCLeft interceptions successful: 17
+Team FCLeft passes: 3255
+Team FCLeft unsuccessful passes: 721
+
+Team ASRight shots total: 38
+Team ASRight shots on target: 22
+Team ASRight interceptions total: 58
+Team ASRight interceptions successful: 19
+Team ASRight passes: 3255
+Team ASRight unsuccessful passes: 721
+
+FC_LEFT goalkeeper
+Interventions made: 22
+Successful interventions made: 14
+
+AS_RIGHT goalkeeper
+Interventions made: 29
+Successful interventions made: 21
+

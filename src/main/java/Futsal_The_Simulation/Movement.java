@@ -43,14 +43,23 @@ public class Movement {
     public boolean checkIfPlayerRightOnTheEdge(Player player, int sector) {
         switch (player.getMyRole()) {
             case ATTACKER:
-                if (sector > 15)
+                if (sector > 15) {
+                    System.out.println("I tried to cross > 15 ");
                     return true;
+                }
+                break;
             case DEFENDER:
-                if (sector < 16)
+
+                if (sector < 16) {
+                    System.out.println("I tried to cross < 16 ");
                     return true;
+                }
+                break;
             case MIDFIELDER:
-                if (sector < 6 || sector > 25)
+                if (sector < 6 || sector > 25) {
                     return true;
+                }
+                break;
         }
         return false;
     }
@@ -60,12 +69,15 @@ public class Movement {
             case DEFENDER:
                 if (sector > 15)
                     return true;
+                break;
             case ATTACKER:
                 if (sector < 16)
                     return true;
+                break;
             case MIDFIELDER:
                 if (sector < 6 || sector > 25)
                     return true;
+                break;
         }
         return false;
     }
@@ -77,6 +89,7 @@ public class Movement {
             return checkIfPlayerRightOnTheEdge(player, sector);
         if (player.getMyTeam() == Teams.FC_LEFT)
             return checkIfPlayerLeftOnTheEdge(player, sector);
+
         return false;
     }
 
@@ -122,7 +135,7 @@ public class Movement {
     public boolean isThereMyTeammateWhereIWantToGo(FieldGenerator field, Player player) {
         if (player.getMyTeam() == Teams.AS_RIGHT)
             return (field.getAllSectors().get(player.getMySector() - 1).getIsPlayerRightHere());
-        if(player.getMyTeam() == Teams.FC_LEFT)
+        if (player.getMyTeam() == Teams.FC_LEFT)
             return (field.getAllSectors().get(player.getMySector() - 1).getIsPlayerLeftHere());
         return false;
     }
@@ -131,27 +144,31 @@ public class Movement {
         field.giveInformationPlayerLeaving(player);
         int current = player.getMySector();
         int howManyTimesIteration = 0;
+        int howManyTimesIteration2 = 0;
         do {
-            player.setMySector(current);
-            switch (choosingFinalDestination(field, player)) {
-                case UP:
-                    player.setMySector(player.getMySector() - 1);
-                    break;
-                case DOWN:
-                    player.setMySector(player.getMySector() + 1);
-                    break;
-                case RIGHT:
-                    player.setMySector(player.getMySector() + 5);
-                    break;
-                case LEFT:
-                    player.setMySector(player.getMySector() - 5);
-                    break;
+            do {
+                player.setMySector(current);
+                switch (choosingFinalDestination(field, player)) {
+                    case UP:
+                        player.setMySector(current - 1);
+                        break;
+                    case DOWN:
+                        player.setMySector(current + 1);
+                        break;
+                    case RIGHT:
+                        player.setMySector(current + 5);
+                        break;
+                    case LEFT:
+                        player.setMySector(current - 5);
+                        break;
 
-            }
-            howManyTimesIteration++;
-        } while (isThereMyTeammateWhereIWantToGo(field, player) && howManyTimesIteration < 6 && didICrossTheBorder(player, player.getMySector())); //unikamy  nieskoñczonej pêtli, jak 6 razy z niej nie wyjdzie - zostaje w miejscu
+                }
+                howManyTimesIteration++;
+            } while (isThereMyTeammateWhereIWantToGo(field, player) && howManyTimesIteration < 6);
+            howManyTimesIteration2++;
+        }while(didICrossTheBorder(player, player.getMySector()) && howManyTimesIteration2 < 6);
         boolean flagToShowMessage = false;
-        if (howManyTimesIteration >= 6) {
+        if (howManyTimesIteration >= 6 ||howManyTimesIteration2>=6) {
             player.setMySector(current);
             System.out.println("Player number " + player.getMyNumber() + " from " + player.getMyTeam() + " decides to stay in sector " + player.getMySector() + ", since he's surrounded with teammates.");
             flagToShowMessage = true;
