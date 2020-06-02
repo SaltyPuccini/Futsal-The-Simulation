@@ -9,15 +9,31 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+/**
+ * FieldGenerator is responsible for generating field consisting of sectors and operating on them.
+ */
 public class FieldGenerator {
 
     private final ArrayList<Sector> allSectors = new ArrayList<>();
 
-    public void addLocalVariablesToGlobalField(int id, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere, String isWallNextToMe) {
+    /**
+     * Fills ArrayList with values.
+     * @param id - id of sector
+     * @param connectedSectors - sectors connected to the sector
+     * @param isPlayerRightHere - check is player from AS_Right at this sector
+     * @param isPlayerLeftHere - check is player from FC_Left at this sector
+     * @param isWallNextToMe - checks if there is wall next to the sector
+     */
+    private void addLocalVariablesToGlobalField(int id, JSONArray connectedSectors, boolean isPlayerRightHere, boolean isPlayerLeftHere, String isWallNextToMe) {
         Sector sector = new Sector(id, connectedSectors, isPlayerRightHere, isPlayerLeftHere, isWallNextToMe);
         allSectors.add(sector);
     }
 
+    /**
+     * Loads information from JSON to ArrayList allSectors.
+     * @throws IOException
+     * @throws JSONException
+     */
     public void loadSectors() throws IOException, JSONException {
         String path = new String(Files.readAllBytes(Paths.get("src/main/resources/sektory.json")));
         JSONArray jsonArray = new JSONArray(path);
@@ -55,7 +71,11 @@ public class FieldGenerator {
         }
     }
 
-
+    /**
+     * Gives information about FC_Left's players positions.
+     * @param player - ArrayList of players from FC_Left.
+     * @param sizeOfTeam
+     */
     public void giveStartingSectorsInformationLeft(ArrayList<Player> player, int sizeOfTeam) {
         for (int i = 0; i < sizeOfTeam; i++) {
             for (int k = 0; k < 30; k++) {
@@ -67,6 +87,12 @@ public class FieldGenerator {
             }
         }
     }
+
+    /**
+     * Gives information about AS_Right's players positions.
+     * @param player - ArrayList of players from AS_Right.
+     * @param sizeOfTeam
+     */
     public void giveStartingSectorsInformationRight(ArrayList<Player> player, int sizeOfTeam) {
         for (int i = 0; i < sizeOfTeam; i++) {
             for (int k = 0; k < 30; k++) {
@@ -79,11 +105,3 @@ public class FieldGenerator {
     }
 
 }
-/* zaczynaj¹c symulacjê:
-1. wczytujemy info z JSONA o boisku za pomoc¹ loadSectors;
-2. pytamy o specyfikacje symulacji i tworzymy pi³karzy;
-3. wczytujemy info o pozycjach pi³karzy do allSectors za pomoc¹ metody giveStartingSectorsInformationAboutPlayersPosition;
-4. za ka¿dym razem, gdy player siê porusza:
-    - giveInformationPlayerLeaving usuwa info o miejscu pobytu gracza z allSectors
-    - giveInformationPlayerAppearing podaje info o miejscu nowego pobytu gracza do allSectors
- */

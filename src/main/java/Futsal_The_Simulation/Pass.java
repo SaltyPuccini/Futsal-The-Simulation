@@ -5,11 +5,14 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Pass enables player to the pass.
+ */
 public class Pass {
 
     private final OtherPlayersOnThePitch otherPlayers = new OtherPlayersOnThePitch();
 
-    public void decideWhetherPassFarOrNear(FieldGenerator field, Player player, Ball ball, ArrayList<Player> listOfEnemies, UserInputReader input) throws JSONException {
+    private void decideWhetherPassFarOrNear(FieldGenerator field, Player player, Ball ball, ArrayList<Player> listOfEnemies, UserInputReader input) throws JSONException {
         int positionOfSomeoneNearby = otherPlayers.checkingForNearbyTeammates(field, player);
         if (positionOfSomeoneNearby == 0 || positionOfSomeoneNearby <= player.getMySector() - 1) {
             //ten if za³atwia podania tylko do przodu/boku
@@ -20,7 +23,7 @@ public class Pass {
         }
     }
 
-    public void passFar(FieldGenerator field, Player player, Ball ball, ArrayList<Player> listOfEnemies, UserInputReader input) {
+    private void passFar(FieldGenerator field, Player player, Ball ball, ArrayList<Player> listOfEnemies, UserInputReader input) {
         int chosenPosition = otherPlayers.checkingFarTeammatesPosition(field, player);
         if (chosenPosition == 0) {
             System.out.println("There's no one to pass on the whole field. I give up. The match is over. I'm kicking the ball out of the park");
@@ -45,7 +48,7 @@ public class Pass {
 
     }
 
-    public void passNear(int positionOfSomeoneNearby, Ball ball) {
+    private void passNear(int positionOfSomeoneNearby, Ball ball) {
         ball.setSectorOfTheBall(positionOfSomeoneNearby);
     }
 

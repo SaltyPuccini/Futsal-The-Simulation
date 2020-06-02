@@ -6,6 +6,9 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * OtherPlayersOnThePitch is responsible for distributing information about players' positions.
+ */
 public class OtherPlayersOnThePitch {
     private Teams myTeam;
     private int mySector;
@@ -16,31 +19,34 @@ public class OtherPlayersOnThePitch {
     private int[] arrayOfConnectedSectors;
 
 
-
-    public void onWhomAmIOperating(Player player) {
+    /**
+     * Sets team and sector of currently checking player.
+     * @param player - currently checking player.
+     */
+    private void onWhomAmIOperating(Player player) {
         myTeam = player.getMyTeam();
         mySector = player.getMySector();
     }
 
-    public void gettingInformationAboutConnectedSectors(FieldGenerator generator, Player player) {
+    private void gettingInformationAboutConnectedSectors(FieldGenerator generator, Player player) {
         onWhomAmIOperating(player);
         Sector playersSectorThatWeCheck = generator.getAllSectors().get(mySector - 1);
         connectedSectors = playersSectorThatWeCheck.getConnectedSectors();
     }
 
-    public void fillingArrayOfConnectedSectors(FieldGenerator generator, Player player) throws JSONException {
+    private void fillingArrayOfConnectedSectors(FieldGenerator generator, Player player) throws JSONException {
         gettingInformationAboutConnectedSectors(generator, player);
-        arrayOfConnectedSectors = new int[connectedSectors.length()]; //dru¿yna prawa sprawdza od indeksu 0, a lewa od najwuy¿szego
+        arrayOfConnectedSectors = new int[connectedSectors.length()]; //AS_Right checks from index 0, FC_Left index last.
         for (int i = 0; i < connectedSectors.length(); i++)
             arrayOfConnectedSectors[i] = connectedSectors.getInt(i);
     }
 
-    public void searchTeamLeft(FieldGenerator generator, int iterator) {
+    private void searchForPlayersFCLeft(FieldGenerator generator, int iterator) {
         neighbourSectorToCheck = generator.getAllSectors().get(arrayOfConnectedSectors[iterator] - 1);
         isPlayerLeftHere = neighbourSectorToCheck.getIsPlayerLeftHere();
     }
 
-    public void searchTeamRight(FieldGenerator generator, int iterator) {
+    private void searchForPlayersASRight(FieldGenerator generator, int iterator) {
         neighbourSectorToCheck = generator.getAllSectors().get(arrayOfConnectedSectors[iterator] - 1);
         isPlayerRightHere = neighbourSectorToCheck.getIsPlayerRightHere();
     }
@@ -50,7 +56,7 @@ public class OtherPlayersOnThePitch {
         switch (myTeam) {
             case FC_LEFT:
                 for (int i = connectedSectors.length() - 1; i >= 0; i--) {
-                    searchTeamLeft(generator, i);
+                    searchForPlayersFCLeft(generator, i);
                     if (isPlayerLeftHere) {
 //                        System.out.println("There's someone in sector " + arrayOfConnectedSectors[i]);
                         return arrayOfConnectedSectors[i];
@@ -59,7 +65,7 @@ public class OtherPlayersOnThePitch {
                 break;
             case AS_RIGHT:
                 for (int i = 0; i < connectedSectors.length(); i++) {
-                    searchTeamRight(generator, i);
+                    searchForPlayersASRight(generator, i);
                     if (isPlayerRightHere) {
 //                        System.out.println("There's someone in sector " + arrayOfConnectedSectors[i]);
                         return arrayOfConnectedSectors[i];
@@ -73,15 +79,14 @@ public class OtherPlayersOnThePitch {
 
 
 
-    public int drawSectorAndPassItForward(ArrayList<Integer> arrayOfFriendlyPosition) {
+    private int drawSectorAndPassItForward(ArrayList<Integer> arrayOfFriendlyPosition) {
         Random randomGenerator = new Random();
         int randomNumber = randomGenerator.nextInt(arrayOfFriendlyPosition.size());
-//        System.out.println("Hell yeah there's my teammate in sector number " + (arrayOfFriendlyPosition.get(randomNumber) + 1));
         return arrayOfFriendlyPosition.get(randomNumber) + 1;
     }
 
 
-    public void checkerFar(FieldGenerator generator, ArrayList<Integer> arrayOfFriendlyPosition, int iterator ){
+    private void checkerFar(FieldGenerator generator, ArrayList<Integer> arrayOfFriendlyPosition, int iterator ){
         Sector sectorWeAreChecking = generator.getAllSectors().get(iterator);
         switch (myTeam) {
             case FC_LEFT:

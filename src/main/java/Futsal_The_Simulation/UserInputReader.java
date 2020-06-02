@@ -10,7 +10,7 @@ public class UserInputReader {
     private final ArrayList<Integer> attackerStats = new ArrayList<>();
     private final ArrayList<Integer> midfielderStats = new ArrayList<>();
     private final ArrayList<Integer> defenderStats = new ArrayList<>();
-   int goalkeeperStat;
+    private int goalkeeperStat;
 
 
     public void operateOnArrayListForSimulationProperties(int timeEstimated, int teamsSize) {
