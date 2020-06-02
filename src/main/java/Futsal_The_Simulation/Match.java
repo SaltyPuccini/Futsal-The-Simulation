@@ -27,7 +27,7 @@ public class Match {
                     goalkeeperFCLeft.save(ball, field, scoreboard);
                     break;
                 }
-                teamFCLeft.get(k).interception(ball);
+                teamASRight.get(k).interception(ball);
                 movement.movingPlayerToHisFinalDestination(field, teamASRight.get(k), ball);
                 teamASRight.get(k).interception(ball);
                 pass.passTheBallIfPossible(field, teamASRight.get(k), ball, teamFCLeft, input);

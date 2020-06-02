@@ -57,7 +57,7 @@ public abstract class Player {
         }
     }
 
-    private void decideIfInterceptionASRightSucceed(Ball ball) {
+    public void decideIfInterceptionASRightSucceed(Ball ball) {
         Random randomGenerator = new Random();
         if (ball.getSectorOfTheBall() == mySector) {
             int willISucceed = randomGenerator.nextInt(100)+1;
@@ -72,7 +72,7 @@ public abstract class Player {
     }
 
 
-    private void decideIfInterceptionFCLeftSucceed(Ball ball) {
+    public void decideIfInterceptionFCLeftSucceed(Ball ball) {
         Random randomGenerator = new Random();
         if (ball.getSectorOfTheBall() == mySector) {
             int willISucceed = randomGenerator.nextInt(100)+1;
@@ -101,7 +101,7 @@ public abstract class Player {
         }
     }
 
-    private boolean checkIfImInPositionToShoot(FieldGenerator field) {
+    public boolean checkIfImInPositionToShoot(FieldGenerator field) {
         switch (getMyTeam()) {
             case FC_LEFT:
                 if (getMySector() > 20 && !field.getAllSectors().get(getMySector() - 1).getIsPlayerRightHere()) {
@@ -117,7 +117,7 @@ public abstract class Player {
         return false;
     }
 
-    private void shot(Ball ball) {
+    public void shot(Ball ball) {
         ball.setAmIshoot(true);
     }
 
@@ -142,10 +142,10 @@ public abstract class Player {
         return false; //jak zwróci true, to jest break w pêtli i zaczynamy od interwencji bramkarza.
     }
 
-    private int shotOnTarget = 0;
-    private int shot = 0;
-    private int interceptionSuccessful = 0;
-    private int interception = 0;
+    int shotOnTarget = 0;
+    int shot = 0;
+    int interceptionSuccessful = 0;
+    int interception = 0;
 
     public int getInterception() {
         return interception;
@@ -165,5 +165,17 @@ public abstract class Player {
 
     public int getPassingStat() {
         return passingStat;
+    }
+
+    public int getDefendingStat() {
+        return defendingStat;
+    }
+
+    public int getShootingStat() {
+        return shootingStat;
+    }
+
+    public void setAmIOnTheBall(boolean amIOnTheBall) {
+        this.amIOnTheBall = amIOnTheBall;
     }
 }
