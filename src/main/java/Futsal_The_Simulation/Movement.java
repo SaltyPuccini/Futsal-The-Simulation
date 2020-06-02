@@ -60,14 +60,12 @@ public class Movement {
         switch (player.getMyRole()) {
             case ATTACKER:
                 if (sector > 15) {
-                    System.out.println("I tried to cross > 15 ");
                     return true;
                 }
                 break;
             case DEFENDER:
 
                 if (sector < 16) {
-                    System.out.println("I tried to cross < 16 ");
                     return true;
                 }
                 break;
