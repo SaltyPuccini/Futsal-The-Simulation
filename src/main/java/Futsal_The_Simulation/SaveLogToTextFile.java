@@ -83,8 +83,7 @@ public class SaveLogToTextFile {
         save.println("Team ASRight unsuccessful passes: " + unsuccessfulPassesRight);
         save.println();
     }
-
-
+    
     public void finalSaver(PrintWriter save, Scoreboard scoreboard, UserInputReader input, ArrayList<Player> teamFCLeft, ArrayList<Player> teamASRight, Pass pass) {
         for (int i = 0; i < input.getSimulationProperties().get(1); i++) {
             countInterceptions(teamFCLeft.get(i));

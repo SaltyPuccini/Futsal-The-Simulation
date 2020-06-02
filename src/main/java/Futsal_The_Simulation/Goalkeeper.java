@@ -17,7 +17,7 @@ public class Goalkeeper {
         this.goalkeepingStat = goalkeepingStat;
     }
 
-    public boolean doIHaveToSaveAndIsItSuccessful(Ball ball) {
+    private boolean doIHaveToSaveAndIsItSuccessful(Ball ball) {
         Random randomGenerator = new Random();
         if (ball.getAmIshoot() && ball.getTeamOfTheBall() != myTeam) {
             intervention++;
@@ -31,7 +31,7 @@ public class Goalkeeper {
         return false;
     }
 
-    public int checkingFarTeammatesPosition(FieldGenerator generator) {
+    private int checkingFarTeammatesPosition(FieldGenerator generator) {
         ArrayList<Integer> arrayOfFriendlyPosition = new ArrayList<>();
         for (int i = 0; i < generator.getAllSectors().size(); i++) {
             checkerFar(generator, arrayOfFriendlyPosition, i);
@@ -58,7 +58,7 @@ public class Goalkeeper {
     }
 
 
-    public int choseNearestSectorToPass(ArrayList<Integer> arrayOfFriendlyPosition) {
+    private int choseNearestSectorToPass(ArrayList<Integer> arrayOfFriendlyPosition) {
         int sectorNumber;
         if (myTeam == Teams.AS_RIGHT)
             sectorNumber = arrayOfFriendlyPosition.get(arrayOfFriendlyPosition.size() - 1);
@@ -69,7 +69,7 @@ public class Goalkeeper {
     }
 
 
-    public void checkerFar(FieldGenerator generator, ArrayList<Integer> arrayOfFriendlyPosition, int iterator) {
+    private void checkerFar(FieldGenerator generator, ArrayList<Integer> arrayOfFriendlyPosition, int iterator) {
         Sector sectorWeAreChecking = generator.getAllSectors().get(iterator);
         switch (myTeam) {
             case FC_LEFT:
