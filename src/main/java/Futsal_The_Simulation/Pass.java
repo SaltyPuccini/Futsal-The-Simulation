@@ -23,6 +23,27 @@ public class Pass {
         }
     }
 
+    private int passLeft = 0;
+    private int passRight = 0;
+    private int unsuccessfulPassLeft = 0;
+    private int unsuccessfulPassRight = 0;
+
+    public int getPassLeft() {
+        return passLeft;
+    }
+
+    public int getUnsuccessfulPassLeft() {
+        return unsuccessfulPassLeft;
+    }
+
+    public int getPassRight() {
+        return passRight;
+    }
+
+    public int getUnsuccessfulPassRight() {
+        return unsuccessfulPassRight;
+    }
+
     private void passFar(FieldGenerator field, Player player, Ball ball, ArrayList<Player> listOfEnemies, UserInputReader input) {
         int chosenPosition = otherPlayers.checkingFarTeammatesPosition(field, player);
         if (chosenPosition == 0) {
@@ -38,10 +59,13 @@ public class Pass {
             int positionOfRandomEnemy = otherPlayers.positionOfRandomEnemy(listOfEnemies, input);
             ball.setSectorOfTheBall(positionOfRandomEnemy);
             ball.setTeamOfTheBall(listOfEnemies.get(1).getMyTeam());
-            unsuccessfulPass++;
+            if (player.getMyTeam() == Teams.FC_LEFT)
+                unsuccessfulPassLeft++;
+            if (player.getMyTeam() == Teams.FC_LEFT)
+                unsuccessfulPassRight++;
             for (int i = 0; i < input.getSimulationProperties().get(1); i++) {
-                if(listOfEnemies.get(i).getMySector()==positionOfRandomEnemy)
-                        listOfEnemies.get(i).setAmIOnTheBall(true);
+                if (listOfEnemies.get(i).getMySector() == positionOfRandomEnemy)
+                    listOfEnemies.get(i).setAmIOnTheBall(true);
             }
             System.out.println("Player number " + player.getMyNumber() + " from " + player.getMyTeam() + " passes really inaccurate and now the ball in sector " + ball.getSectorOfTheBall() + ".");
         }
@@ -54,20 +78,14 @@ public class Pass {
 
     public void passTheBallIfPossible(FieldGenerator field, Player player, Ball ball, ArrayList<Player> listOfEnemies, UserInputReader input) throws JSONException {
         if (player.getAmIOnTheBall()) {
-            pass++;
+            if(player.getMyTeam()==Teams.FC_LEFT)
+                passLeft++;
+            if(player.getMyTeam()==Teams.AS_RIGHT)
+                passRight++;
             decideWhetherPassFarOrNear(field, player, ball, listOfEnemies, input);
             player.decideAmIOnTheBall(ball);
         }
     }
 
-    int pass = 0;
-    int unsuccessfulPass = 0;
 
-    public int getPass() {
-        return pass;
-    }
-
-    public int getUnsuccessfulPass() {
-        return unsuccessfulPass;
-    }
 }
