@@ -57,7 +57,7 @@ public abstract class Player {
         }
     }
 
-    public void decideIfInterceptionASRightSucceed(Ball ball) {
+    private void decideIfInterceptionASRightSucceed(Ball ball) {
         Random randomGenerator = new Random();
         if (ball.getSectorOfTheBall() == mySector) {
             int willISucceed = randomGenerator.nextInt(100)+1;
@@ -72,7 +72,7 @@ public abstract class Player {
     }
 
 
-    public void decideIfInterceptionFCLeftSucceed(Ball ball) {
+    private void decideIfInterceptionFCLeftSucceed(Ball ball) {
         Random randomGenerator = new Random();
         if (ball.getSectorOfTheBall() == mySector) {
             int willISucceed = randomGenerator.nextInt(100)+1;
@@ -101,7 +101,7 @@ public abstract class Player {
         }
     }
 
-    public boolean checkIfImInPositionToShoot(FieldGenerator field) {
+    private boolean checkIfImInPositionToShoot(FieldGenerator field) {
         switch (getMyTeam()) {
             case FC_LEFT:
                 if (getMySector() > 20 && !field.getAllSectors().get(getMySector() - 1).getIsPlayerRightHere()) {
@@ -117,7 +117,7 @@ public abstract class Player {
         return false;
     }
 
-    public void shot(Ball ball) {
+    private void shot(Ball ball) {
         ball.setAmIshoot(true);
     }
 
@@ -165,13 +165,5 @@ public abstract class Player {
 
     public int getPassingStat() {
         return passingStat;
-    }
-
-    public int getDefendingStat() {
-        return defendingStat;
-    }
-
-    public int getShootingStat() {
-        return shootingStat;
     }
 }
