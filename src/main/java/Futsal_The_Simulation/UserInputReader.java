@@ -13,7 +13,7 @@ public class UserInputReader {
     private int goalkeeperStat;
 
 
-    public void operateOnArrayListForSimulationProperties(int timeEstimated, int teamsSize) {
+    private void operateOnArrayListForSimulationProperties(int timeEstimated, int teamsSize) {
         simulationProperties.add(timeEstimated);
         simulationProperties.add(teamsSize);
     }
@@ -50,7 +50,7 @@ public class UserInputReader {
 
     }
 
-    public void operateOnArrayListForAttackerStats(int shootingStat, int passingStat) {
+    private void operateOnArrayListForAttackerStats(int shootingStat, int passingStat) {
         attackerStats.add(shootingStat);
         attackerStats.add(passingStat);
     }
@@ -67,7 +67,7 @@ public class UserInputReader {
         return attackerStats;
     }
 
-    public void operateOnArrayListForMidfielderStats(int shootingStat, int passingStat, int defendingStat) {
+    private void operateOnArrayListForMidfielderStats(int shootingStat, int passingStat, int defendingStat) {
         midfielderStats.add(shootingStat);
         midfielderStats.add(passingStat);
         midfielderStats.add(defendingStat);
@@ -86,7 +86,7 @@ public class UserInputReader {
         return midfielderStats;
     }
 
-    public void operateOnArrayListForDefenderStats(int passingStat, int defendingStat) {
+    private void operateOnArrayListForDefenderStats(int passingStat, int defendingStat) {
         defenderStats.add(passingStat);
         defenderStats.add(defendingStat);
     }
@@ -138,7 +138,7 @@ public class UserInputReader {
         } while ((numberOfAttackers + numberOfMidfielders + numberOfDefenders) != simulationProperties.get(1));
     }
 
-    public void operateOnArrayListForGoalkeeperStats(int goalkeepingStat) {
+    private void operateOnArrayListForGoalkeeperStats(int goalkeepingStat) {
         this.goalkeeperStat=goalkeepingStat;
     }
 

@@ -77,14 +77,11 @@ public class OtherPlayersOnThePitch {
         return 0;
     }
 
-
-
     private int drawSectorAndPassItForward(ArrayList<Integer> arrayOfFriendlyPosition) {
         Random randomGenerator = new Random();
         int randomNumber = randomGenerator.nextInt(arrayOfFriendlyPosition.size());
         return arrayOfFriendlyPosition.get(randomNumber) + 1;
     }
-
 
     private void checkerFar(FieldGenerator generator, ArrayList<Integer> arrayOfFriendlyPosition, int iterator ){
         Sector sectorWeAreChecking = generator.getAllSectors().get(iterator);
@@ -105,8 +102,6 @@ public class OtherPlayersOnThePitch {
         }
     }
 
-
-
     public int checkingFarTeammatesPosition(FieldGenerator generator, Player player) {
         onWhomAmIOperating(player);
         ArrayList<Integer> arrayOfFriendlyPosition = new ArrayList<>();
@@ -126,6 +121,4 @@ public class OtherPlayersOnThePitch {
         whereToPass = listOfEnemies.get(randomNumber).getMySector();
         return whereToPass;
     }
-
-
 }

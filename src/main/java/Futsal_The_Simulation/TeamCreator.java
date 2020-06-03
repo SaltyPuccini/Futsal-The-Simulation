@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class TeamCreator {
 
     private int iterator;
+
     public ArrayList<Player> createATeam(UserInputReader input, Teams team, Scanner scan) {
         int looper =0;
         ArrayList<Player> listOfPlayers = new ArrayList<>();
@@ -32,7 +33,6 @@ public class TeamCreator {
         }
         return listOfPlayers;
     }
-    //porozbijaæ na mniejsze metody, zrobiæ ustawiacz sektorów, dodaæ zapis do pliku.
 
 
     public Goalkeeper createAGoalkeeperLeft(UserInputReader input, Scanner scan) {
@@ -45,7 +45,7 @@ public class TeamCreator {
         return new Goalkeeper(Teams.AS_RIGHT, 28, input.getGoalkeeperStat());
     }
 
-    public void giveSectorsToDefenders(UserInputReader input, ArrayList<Player> listOfPLayers) {
+    private void giveSectorsToDefenders(UserInputReader input, ArrayList<Player> listOfPLayers) {
         int i;
         for (i = 0; i < input.getNumberOfDefenders(); i++) {
             switch (listOfPLayers.get(i).getMyTeam()) {
@@ -60,7 +60,7 @@ public class TeamCreator {
         }
     }
 
-    public void giveSectorsToMidfielders(UserInputReader input, ArrayList<Player> listOfPLayers) {
+    private void giveSectorsToMidfielders(UserInputReader input, ArrayList<Player> listOfPLayers) {
         int i;
         for (i = 0; i < input.getNumberOfMidfielders(); i++) {
             switch (listOfPLayers.get(iterator).getMyTeam()) {
@@ -75,7 +75,7 @@ public class TeamCreator {
         }
     }
 
-    public void giveSectorsToAttackers(UserInputReader input, ArrayList<Player> listOfPLayers) {
+    private void giveSectorsToAttackers(UserInputReader input, ArrayList<Player> listOfPLayers) {
         int i;
         for (i = 0; i < input.getNumberOfAttackers(); i++) {
             switch (listOfPLayers.get(iterator).getMyTeam()) {
